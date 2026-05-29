@@ -1,0 +1,283 @@
+{
+  "meta": {
+    "unit_id": 2,
+    "section_id": 1,
+    "section_title": "Section 1 — Cell Theory and the Levels of Life",
+    "phenomenon_prompt": "Your grandmother sets out a bowl of idli batter on the counter at night. By morning, it has nearly doubled in volume and tastes slightly sour. She covers it and waits. By the time the steamers go on, the batter has been transformed.",
+    "opening_question": "Is the idli batter alive? Write down your gut answer before you read further — you'll come back to it.",
+    "revisit_prompt": "Now that you've worked through the section, would you change your answer? What changed your mind?"
+  },
+  "mcq": [
+    {
+      "id": "mcq-cell-theory-principles",
+      "prompt": "Which of the following is NOT one of the three principles of modern cell theory?",
+      "option_a": "All living things are made of one or more cells.",
+      "option_b": "The cell is the basic unit of structure and function in living things.",
+      "option_c": "All cells come from pre-existing cells.",
+      "option_d": "All cells contain a nucleus.",
+      "correct": "d",
+      "explanation": "Bacterial cells (prokaryotes) have no nucleus, but they are still cells. The three principles are about cells in general, not just cells with nuclei."
+    },
+    {
+      "id": "mcq-virchow",
+      "prompt": "The idea that 'all cells come from pre-existing cells' is most directly associated with which scientist?",
+      "option_a": "Robert Hooke",
+      "option_b": "Anton van Leeuwenhoek",
+      "option_c": "Rudolf Virchow",
+      "option_d": "Matthias Schleiden",
+      "correct": "c",
+      "explanation": "Virchow synthesized earlier work to argue that cells reproduce — closing the door on spontaneous generation."
+    },
+    {
+      "id": "mcq-characteristic-energy",
+      "prompt": "Yeast cells in idli batter break down sugars from rice and dal to release energy. Which characteristic of life does this best illustrate?",
+      "option_a": "Reproduction",
+      "option_b": "Energy use",
+      "option_c": "Response to stimuli",
+      "option_d": "Homeostasis",
+      "correct": "b",
+      "explanation": "Using molecules from the environment to release usable energy is the metabolism characteristic. The microbes are eating."
+    },
+    {
+      "id": "mcq-level-tissue",
+      "prompt": "A single layer of skin cells working together to form a barrier is best described as which level of organization?",
+      "option_a": "An organ",
+      "option_b": "An organ system",
+      "option_c": "A tissue",
+      "option_d": "An organelle",
+      "correct": "c",
+      "explanation": "Many similar cells working together form a tissue. Several tissues working together form an organ."
+    },
+    {
+      "id": "mcq-hooke",
+      "prompt": "Robert Hooke gave us the word 'cell' because the structures he saw reminded him of:",
+      "option_a": "Glass beads in a microscope slide",
+      "option_b": "Small rooms in a monastery",
+      "option_c": "Tiny machines",
+      "option_d": "Drops of water",
+      "correct": "b",
+      "explanation": "Hooke was looking at cork, and the dead plant cell walls looked like the small monk's rooms — cellae in Latin — he was familiar with."
+    },
+    {
+      "id": "mcq-batter-alive",
+      "prompt": "If you argue the idli batter itself is alive, which evidence would be strongest?",
+      "option_a": "The bowl gets warmer overnight.",
+      "option_b": "The batter rises and turns sour because microbes in it grow and produce gas.",
+      "option_c": "The batter is made from rice, which used to be alive.",
+      "option_d": "The batter smells different in the morning.",
+      "correct": "b",
+      "explanation": "The defensible claim is that microbes in the batter are alive. They grow, they use energy, they reproduce, they respond to temperature. The batter is their habitat."
+    }
+  ],
+  "fill_blank": [
+    {
+      "id": "fill-hooke",
+      "prompt": "The scientist who coined the word 'cell' after looking at cork under a microscope was ____.",
+      "accepted_answers": "Hooke|Robert Hooke|R. Hooke|R Hooke",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-virchow",
+      "prompt": "The principle that 'all cells come from pre-existing cells' is most associated with ____.",
+      "accepted_answers": "Virchow|Rudolf Virchow|R. Virchow",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-organelle",
+      "prompt": "The nucleus and the ribosome are both ____ — structures inside a cell that do specific jobs.",
+      "accepted_answers": "organelles|organelle",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-tissue",
+      "prompt": "Many similar cells working together to do one job form a ____.",
+      "accepted_answers": "tissue",
+      "case_sensitive": false
+    }
+  ],
+  "drag_order": [
+    { "id": "level-atom", "label": "Atom", "correct_position": 1 },
+    { "id": "level-molecule", "label": "Molecule", "correct_position": 2 },
+    { "id": "level-organelle", "label": "Organelle", "correct_position": 3 },
+    { "id": "level-cell", "label": "Cell", "correct_position": 4 },
+    { "id": "level-tissue", "label": "Tissue", "correct_position": 5 },
+    { "id": "level-organ", "label": "Organ", "correct_position": 6 },
+    { "id": "level-organ-system", "label": "Organ system", "correct_position": 7 },
+    { "id": "level-organism", "label": "Organism", "correct_position": 8 }
+  ],
+  "ai_critique": {
+    "flawed_text": "Cell theory was developed in 1755 when Robert Hooke discovered living cells in a sample of pond water using the very first microscope. Hooke proposed that all living organisms are made of cells with nuclei, and that cells can form spontaneously from non-living matter when conditions are right. His ideas were later confirmed by Anton van Leeuwenhoek, who used Hooke's exact instruments to observe what he called 'animalcules' in the same decade. Modern cell theory has two main parts: all living things are made of cells, and all cells contain DNA in a nucleus.",
+    "errors": [
+      {
+        "error_id": "E1",
+        "marker": "in 1755 when Robert Hooke discovered living cells in a sample of pond water",
+        "kind": "historical",
+        "correct_explanation": "Hooke published Micrographia in 1665 — almost a century earlier — and he observed dead plant cells in cork, not living cells in pond water. The naming of 'cells' came from the empty boxes left behind in the cork."
+      },
+      {
+        "error_id": "E2",
+        "marker": "all living organisms are made of cells with nuclei, and that cells can form spontaneously from non-living matter",
+        "kind": "conceptual",
+        "correct_explanation": "Two things wrong here. First, not all cells have nuclei — bacteria are cells but have no nucleus. Second, modern cell theory says cells come from pre-existing cells. Virchow's work closed the door on spontaneous generation."
+      },
+      {
+        "error_id": "E3",
+        "marker": "used Hooke's exact instruments to observe what he called 'animalcules' in the same decade",
+        "kind": "subtle",
+        "correct_explanation": "Leeuwenhoek built his own single-lens microscopes — they were not Hooke's instruments. And his microscopes had much higher magnification than Hooke's, which is why he could see living single-celled organisms at all. He was active in the 1670s and after, not the same decade as Hooke."
+      },
+      {
+        "error_id": "E4",
+        "marker": "two main parts: all living things are made of cells, and all cells contain DNA in a nucleus",
+        "kind": "conceptual",
+        "correct_explanation": "Modern cell theory has three parts, not two: (1) all living things are made of cells, (2) the cell is the basic unit of structure and function, (3) all cells come from pre-existing cells. The 'DNA in a nucleus' claim is also wrong for prokaryotes."
+      }
+    ]
+  },
+  "levels": [
+    {
+      "organism": "rice_plant",
+      "level_index": 1,
+      "level_name": "Atom",
+      "label": "Carbon atom",
+      "definition": "The smallest unit of matter that keeps the properties of an element.",
+      "example": "A single carbon atom inside a chlorophyll molecule in a rice leaf.",
+      "svg_ref": "lvl-atom"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 2,
+      "level_name": "Molecule",
+      "label": "Chlorophyll",
+      "definition": "Two or more atoms bonded together.",
+      "example": "A chlorophyll molecule that absorbs sunlight inside a chloroplast.",
+      "svg_ref": "lvl-molecule"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 3,
+      "level_name": "Organelle",
+      "label": "Chloroplast",
+      "definition": "A specialized structure inside a cell that does one job.",
+      "example": "A chloroplast packed with chlorophyll, where photosynthesis happens.",
+      "svg_ref": "lvl-organelle"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 4,
+      "level_name": "Cell",
+      "label": "Mesophyll cell",
+      "definition": "The basic unit of structure and function in living things.",
+      "example": "A single leaf cell stuffed with chloroplasts, doing photosynthesis.",
+      "svg_ref": "lvl-cell"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 5,
+      "level_name": "Tissue",
+      "label": "Leaf mesophyll",
+      "definition": "Many similar cells working together to do one job.",
+      "example": "A layer of mesophyll cells inside the rice leaf, capturing light.",
+      "svg_ref": "lvl-tissue"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 6,
+      "level_name": "Organ",
+      "label": "Rice leaf",
+      "definition": "Several tissues working together to do a larger job.",
+      "example": "The whole leaf — mesophyll, veins, epidermis — converting sunlight to sugar.",
+      "svg_ref": "lvl-organ"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 7,
+      "level_name": "Organ system",
+      "label": "Shoot system",
+      "definition": "A group of organs working together to do a major job.",
+      "example": "The leaves, stem, and tiller of the rice plant — together feeding the whole organism.",
+      "svg_ref": "lvl-organ-system"
+    },
+    {
+      "organism": "rice_plant",
+      "level_index": 8,
+      "level_name": "Organism",
+      "label": "Rice plant",
+      "definition": "An individual living thing made of all its organ systems together.",
+      "example": "One rice plant standing in a paddy, taking in light, water, and nutrients.",
+      "svg_ref": "lvl-organism-plant"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 1,
+      "level_name": "Atom",
+      "label": "Iron atom",
+      "definition": "The smallest unit of matter that keeps the properties of an element.",
+      "example": "A single iron atom at the center of a hemoglobin molecule.",
+      "svg_ref": "lvl-atom"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 2,
+      "level_name": "Molecule",
+      "label": "Hemoglobin",
+      "definition": "Two or more atoms bonded together.",
+      "example": "A hemoglobin molecule carrying oxygen through the bloodstream.",
+      "svg_ref": "lvl-molecule"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 3,
+      "level_name": "Organelle",
+      "label": "Mitochondrion",
+      "definition": "A specialized structure inside a cell that does one job.",
+      "example": "A mitochondrion inside a muscle cell, releasing energy from glucose.",
+      "svg_ref": "lvl-organelle"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 4,
+      "level_name": "Cell",
+      "label": "Red blood cell",
+      "definition": "The basic unit of structure and function in living things.",
+      "example": "A single red blood cell carrying oxygen from your lungs to your toes.",
+      "svg_ref": "lvl-cell"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 5,
+      "level_name": "Tissue",
+      "label": "Blood",
+      "definition": "Many similar cells working together to do one job.",
+      "example": "Blood — red cells, white cells, platelets, all flowing together.",
+      "svg_ref": "lvl-tissue"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 6,
+      "level_name": "Organ",
+      "label": "Heart",
+      "definition": "Several tissues working together to do a larger job.",
+      "example": "The heart — muscle, blood, nerves — pumping eight thousand liters a day.",
+      "svg_ref": "lvl-organ"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 7,
+      "level_name": "Organ system",
+      "label": "Circulatory system",
+      "definition": "A group of organs working together to do a major job.",
+      "example": "Heart, arteries, veins, capillaries — moving blood to every cell.",
+      "svg_ref": "lvl-organ-system"
+    },
+    {
+      "organism": "human_body",
+      "level_index": 8,
+      "level_name": "Organism",
+      "label": "Human",
+      "definition": "An individual living thing made of all its organ systems together.",
+      "example": "One person — eleven organ systems working in parallel.",
+      "svg_ref": "lvl-organism-human"
+    }
+  ]
+}

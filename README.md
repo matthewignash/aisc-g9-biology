@@ -1,59 +1,61 @@
-# AISC HS Grade 9 Biology
+# AISC HS Grade 9 Biology — Public Site
 
-NGSS-aligned curriculum materials and student-facing interactives for **Grade 9 Biology** at the American International School Chennai (AISC).
+The student-facing curriculum site for **Grade 9 Biology** at the American International School Chennai (AISC). NGSS-aligned, phenomenon-driven, AI-literacy integrated, lab-first.
 
-Author: Matthew Ignash
+By Matthew Ignash.
 
-## What's in here
+Live preview: deployed on Vercel from `main` (see [`vercel.json`](./vercel.json)).
+
+## What's in this repo
+
+This repo contains **only the public-facing site and the student-facing interactives**. Matthew's authoring source (unit plan docs, lecture slide decks, study guides, reference PDFs) and any student work live in Google Classroom and Google Drive, not here.
 
 ```
 .
-├── HS G9 Bio Unit 1 Scientific Inquiry and Lab Safety (25-6)/
-├── HS G9 Bio Unit 2 Cell Biology (25-6)/    ← current pilot scope
-│   ├── Section 1 Interactive/                 (deployed)
-│   ├── Section 2 Interactive/                 (built, awaiting Apps Script package)
-│   ├── Unit 2 Design Brief - Interactive Materials.md
-│   └── Unit 2 Website Build Guide - Sections 2-3 and Landing.md
-├── HS G9 Bio Unit 3 Cellular Energetics (25-6)/
-├── HS G9 Bio Unit 4 Matter and Energy (25-6)/
-├── HS G9 Bio Unit 5 DNA to Protein Synthesis (25-6)/
-├── HS G9 Bio Unit 6 Mendelian Genetics (25-6)/
-└── _shared/                                   shared CSS / JS / Apps Script files
-    ├── apps-script/                            ContentLoader.gs, ServeSection.gs
-    ├── css/                                    tokens.css, base.css, components.css
-    ├── js/                                     storage, section-shell, practice modules
-    ├── conventions.md                          curriculum-wide conventions
-    └── content-schema.md                       Google Sheet content schema
+├── index.html              Public landing page (Vercel root)
+├── vercel.json             Clean-URL config
+├── _shared/                Shared assets used by all section pages
+│   ├── apps-script/        Reusable Apps Script: ContentLoader, ServeSection
+│   ├── css/                tokens.css, base.css, components.css
+│   ├── js/                 storage, section-shell, practice modules, etc.
+│   ├── conventions.md      Curriculum-wide conventions
+│   └── content-schema.md   Google Sheet content schema
+└── unit-2/                 Cell Biology (pilot scope)
+    ├── design-brief.md     Why this exists, four design lenses, phenomenon
+    ├── build-guide.md      Build spec for Sections 2/3 + landing
+    ├── section-1/          Cell theory & levels of life (deployed)
+    │   ├── section1.html
+    │   ├── content-snapshot.json
+    │   └── apps-script/
+    └── section-2/          Inside the cell (built, awaiting Apps Script package)
+        └── section2.html
 ```
-
-## Why this exists
-
-A 2025–26 student survey at AISC found that science is the class where 9th graders use AI the most. The honest interpretation is that current materials aren't meeting student needs — students are filling the gap with AI tutors. This repo is the rebuild: phenomenon-driven, AI-literacy integrated, lab-first, with the HTML page itself as the primary student-facing surface.
-
-The full rationale is in [`HS G9 Bio Unit 2 Cell Biology (25-6)/Unit 2 Design Brief - Interactive Materials.md`](./HS%20G9%20Bio%20Unit%202%20Cell%20Biology%20%2825-6%29/Unit%202%20Design%20Brief%20-%20Interactive%20Materials.md).
 
 ## How students reach this material
 
-**Not** via Vercel, Netlify, GitHub Pages, or any third-party CDN — AISC's network blocks those. Deployment is:
+**Not** via Vercel — AISC's network blocks third-party CDNs. Vercel hosts the **public preview** of the work, for colleagues and other teachers.
 
-1. Each section's HTML is served by a small **Google Apps Script web app** (`apps-script/`).
-2. The web app is **embedded inside Google Sites** as an iframe.
+Students reach the actual interactives via:
+
+1. Each section's HTML is served by a small **Google Apps Script web app**.
+2. The Apps Script web app is **embedded inside Google Sites** as an iframe.
 3. Students click into the unit area of the class Google Site to reach it.
+4. Private deliverables (CER responses, lab data, graded work) flow through **Google Classroom**, not through this repo.
 
-The Apps Script web app pulls structured content (multiple-choice questions, fill-in-the-blank items, drag-and-drop cards, AI critique passages, organelle definitions) from a master Google Sheet per section, so content can be edited without redeploying. Reading prose and page structure stay in the HTML.
+Each section's Apps Script pulls structured content (multiple-choice questions, fill-in-the-blank items, drag cards, AI-critique passages, organelle definitions) from a per-section Google Sheet, so content edits don't require a redeploy. Reading prose and page structure stay in the HTML.
 
-See `_shared/conventions.md` for the curriculum-wide conventions and `_shared/content-schema.md` for the Sheet schema.
+See [`_shared/conventions.md`](./_shared/conventions.md) and [`_shared/content-schema.md`](./_shared/content-schema.md) for details.
 
 ## Status
 
 | Unit | Section | Standalone HTML | Apps Script package | Deployed |
-|---|---|---|---|---|
-| Unit 2 | Section 1 — Cell theory + organization | ✓ | ✓ | ✓ |
-| Unit 2 | Section 2 — Inside the cell | ✓ | (next) | — |
+|---|---|:-:|:-:|:-:|
+| Unit 2 | Section 1 — Cell theory + levels of life | ✓ | ✓ | ✓ |
+| Unit 2 | Section 2 — Inside the cell | ✓ | — | — |
 | Unit 2 | Section 3 — Membrane & transport | — | — | — |
-| Unit 2 | Landing page | — | — | — |
+| Unit 2 | Landing | — | n/a | — |
 
-Other units have unit plans only at this stage.
+Other units (1, 3, 4, 5, 6) are planned but the public interactives haven't been built yet.
 
 ## License
 

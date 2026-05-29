@@ -14,20 +14,25 @@ These conventions apply to every section's HTML page across G9 Biology. If a rul
 ## 2. File and folder layout
 
 ```
-G9 Biology/
+aisc-g9-biology/
+  index.html                        # Public-site landing page (Vercel root)
+  vercel.json
   _shared/                          # Curriculum-wide assets
-    css/   js/   apps-script/   templates/
+    css/   js/   apps-script/
     conventions.md   content-schema.md
-  HS G9 Bio Unit N <title> (25-6)/
-    Section <n> Interactive/
-      section<n>.html               # Standalone preview file
+  unit-<n>/
+    design-brief.md                 # Why this unit exists
+    build-guide.md                  # Build spec
+    section-<m>/
+      section<m>.html               # Standalone interactive
       content-snapshot.json         # Snapshot of the master Sheet
-      sheet-link.md                 # URL of the master content Sheet
       apps-script/
         Code.gs   Index.html   README.md
         ContentLoader.gs            # Copy of _shared file
         ServeSection.gs             # Copy of _shared file
 ```
+
+The deployment URL of the master content Sheet for each section lives on the teacher's machine and in Google Drive — not in this repo, since the repo is public.
 
 Apps Script does not natively support shared libraries without extra setup, so the `.gs` files under `_shared/apps-script/` are **copied** into each section's `apps-script/` folder, not linked. When the shared file changes, copies must be re-synced manually. Keep the file's first comment line as `// Shared: G9 Biology _shared/apps-script/<file>.gs — keep in sync.`
 
