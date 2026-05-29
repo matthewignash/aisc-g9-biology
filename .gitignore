@@ -1,0 +1,38 @@
+# ============================================================================
+# AISC HS Grade 9 Biology — .gitignore
+# ============================================================================
+
+# ---- OS / editor cruft ----
+.DS_Store
+*~
+*.swp
+*.swo
+Thumbs.db
+
+# ---- Local tooling state ----
+.claude/
+.vscode/
+.idea/
+
+# ---- Logs / temp ----
+*.log
+*.tmp
+
+# ---- Environment files (defensive — no .env exists today, blocks future accidents) ----
+.env
+.env.*
+
+# ============================================================================
+# Excluded student work — DO NOT TRACK
+#
+# These folders contain prior-year materials with student names in filenames
+# (e.g., "Trevor S Cell Membranes...docx"). The repo is public, so excluding
+# them protects student privacy (FERPA-style concern). They remain on the
+# local machine; they just don't get committed or pushed.
+#
+# To audit what's excluded:
+#   git status --ignored | grep "Prior Year Materials\|Unit 1 - Cell Biology"
+# ============================================================================
+
+**/Prior Year Materials/
+HS G9 Bio Unit 2 Cell Biology (25-6)/Unit 1 - Cell Biology/
