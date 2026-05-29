@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HS Grade 9 Biology — Curriculum Preview · AISC</title>
+<meta name="description" content="Public preview of an NGSS-aligned high school biology curriculum redesign. Phenomenon-driven, AI-literacy integrated, lab-first. By Matthew Ignash at the American International School Chennai." />
+<style>
+:root {
+  --c-teal-deep: #0F3D3E;
+  --c-sage: #7FB069;
+  --c-coral: #F2A65A;
+  --c-bg: #FAFAF7;
+  --c-text: #1A2B2C;
+  --c-muted: #5E6F70;
+  --c-rule: #D9D7CE;
+  --c-coral-soft: #FBE3CC;
+  --c-sage-soft: #DCEED0;
+  --c-teal-soft: #D6E5E5;
+  --font-serif: Georgia, "Charter", "Iowan Old Style", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-text);
+  background: var(--c-bg);
+}
+h1, h2, h3 { font-family: var(--font-serif); color: var(--c-teal-deep); line-height: 1.25; margin: 0 0 16px 0; font-weight: 600; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.625rem; margin-top: 48px; }
+h3 { font-size: 1.125rem; margin: 0 0 8px 0; }
+p { margin: 0 0 16px 0; }
+a { color: var(--c-teal-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--c-coral); }
+.wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px; }
+.hero {
+  background: linear-gradient(135deg, var(--c-teal-soft) 0%, var(--c-bg) 70%);
+  border-bottom: 1px solid var(--c-rule);
+}
+.hero__inner { max-width: 880px; margin: 0 auto; padding: 64px 24px 48px; }
+.hero__eyebrow {
+  font-family: var(--font-serif); font-size: 14px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-coral);
+  margin-bottom: 12px;
+}
+.hero h1 { font-size: 2.75rem; margin-bottom: 12px; }
+.hero__tagline { font-size: 1.2rem; color: var(--c-text); max-width: 640px; }
+.hero__byline { color: var(--c-muted); font-size: 14px; margin-top: 24px; }
+.lenses {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin: 32px 0 8px 0;
+}
+.lens {
+  background: #fff; border: 1px solid var(--c-rule); border-radius: 8px;
+  padding: 12px 14px; font-size: 14px;
+}
+.lens__label { font-family: var(--font-serif); font-weight: 600; color: var(--c-teal-deep); display: block; margin-bottom: 4px; }
+.lens__body { color: var(--c-muted); }
+.callout {
+  background: var(--c-coral-soft); border-left: 4px solid var(--c-coral);
+  border-radius: 8px; padding: 16px 20px; margin: 32px 0;
+}
+.callout__label {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--c-teal-deep); font-weight: 600; margin-bottom: 4px;
+}
+.unit-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px; margin-top: 24px;
+}
+.unit-card {
+  background: #fff; border: 1px solid var(--c-rule); border-radius: 12px;
+  padding: 20px; display: flex; flex-direction: column;
+}
+.unit-card--featured { border-color: var(--c-coral); box-shadow: 0 2px 12px rgba(242, 166, 90, 0.12); }
+.unit-card__number {
+  font-family: var(--font-serif); font-size: 13px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-coral);
+  margin-bottom: 6px;
+}
+.unit-card__title { font-family: var(--font-serif); font-size: 1.15rem; color: var(--c-teal-deep); font-weight: 600; margin-bottom: 8px; }
+.unit-card__status {
+  display: inline-block; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px;
+  background: var(--c-bg); color: var(--c-muted); border: 1px solid var(--c-rule);
+  margin-bottom: 12px; align-self: flex-start;
+}
+.unit-card__status--building { background: var(--c-coral-soft); border-color: var(--c-coral); color: var(--c-teal-deep); }
+.unit-card__status--planning { background: var(--c-bg); }
+.unit-card__desc { color: var(--c-muted); font-size: 14px; flex: 1 1 auto; }
+.unit-card__links { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--c-rule); display: flex; flex-direction: column; gap: 4px; }
+.unit-card__links a { font-size: 14px; }
+.previews {
+  background: var(--c-sage-soft); border-radius: 12px; padding: 24px;
+  margin: 24px 0 8px 0;
+}
+.previews h2 { margin-top: 0; }
+.preview-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.preview-list li { font-size: 15px; }
+.preview-list a { font-weight: 600; }
+.preview-list span { color: var(--c-muted); }
+.section--muted { color: var(--c-muted); }
+.section--muted h2 { color: var(--c-teal-deep); }
+footer {
+  border-top: 1px solid var(--c-rule); margin-top: 64px; padding: 32px 24px;
+  text-align: center; color: var(--c-muted); font-size: 14px;
+}
+footer a { color: var(--c-muted); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">Curriculum Preview · 2025–26</p>
+    <h1>HS Grade 9 Biology</h1>
+    <p class="hero__tagline">NGSS-aligned. Phenomenon-driven. AI-literacy integrated. Lab-first. A curriculum redesign at the American International School Chennai.</p>
+    <p class="hero__byline">By Matthew Ignash · <a href="https://github.com/matthewignash/aisc-g9-biology">View source on GitHub</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p>This is a <strong>public preview</strong> of high school biology curriculum materials in active development at AISC. The pages linked below are the actual student-facing interactives — what students see when they open a section. The page architecture, the design lenses, the pedagogy, and the deployment model are all on display.</p>
+
+  <p>Students at AISC reach this material through Google Sites pages that embed each section's Apps Script web app. The HTML you see in the previews here is the same HTML those Apps Script web apps serve. This Vercel-hosted site exists so anyone — colleagues, other teachers, curriculum designers — can see what the work looks like without needing an AISC account.</p>
+
+  <h2>Four design lenses</h2>
+  <p>Every page is built against these constraints. They aren't features to bolt on — they decide what counts as a good piece of student material.</p>
+
+  <div class="lenses">
+    <div class="lens">
+      <span class="lens__label">Phenomenon-driven</span>
+      <span class="lens__body">Each section opens with a real, local, unresolved question — not a vocabulary list.</span>
+    </div>
+    <div class="lens">
+      <span class="lens__label">AI-literacy integrated</span>
+      <span class="lens__body">Every section has a structured AI critique task with deliberately flawed AI text we authored.</span>
+    </div>
+    <div class="lens">
+      <span class="lens__label">Lab-first / data-first</span>
+      <span class="lens__body">Assessment focuses on students interpreting <em>their own</em> data — the kind a chatbot can't fetch.</span>
+    </div>
+    <div class="lens">
+      <span class="lens__label">Self-paced interactive HTML</span>
+      <span class="lens__body">The page is the lesson. Reading, models, and practice live in one URL.</span>
+    </div>
+  </div>
+
+  <div class="previews">
+    <h2>What you can preview right now</h2>
+    <p>Two student-facing pages are built and live in the preview:</p>
+    <ul class="preview-list">
+      <li>
+        <a href="/units/2/section1">Unit 2 · Section 1 — Cell Theory and the Levels of Life</a>
+        <br><span>The cell-theory timeline (Hooke → Virchow), the seven characteristics of life, an interactive levels-of-organization explorer, plus practice and AI critique.</span>
+      </li>
+      <li>
+        <a href="/units/2/section2">Unit 2 · Section 2 — Inside the Cell</a>
+        <br><span>Prokaryote vs eukaryote, organelle deep-dive, plant vs animal cells, endosymbiotic theory. Wikimedia textbook cell diagrams (LadyofHats). Accordion reading, choice-board practice, sticky progress bar.</span>
+      </li>
+    </ul>
+  </div>
+
+  <h2>Unit map</h2>
+
+  <div class="unit-grid">
+
+    <div class="unit-card">
+      <p class="unit-card__number">Unit 1</p>
+      <p class="unit-card__title">Scientific Inquiry &amp; Lab Safety</p>
+      <span class="unit-card__status unit-card__status--planning">Unit plan only</span>
+      <p class="unit-card__desc">Standards, success criteria, and the unit plan are written. Interactive build not yet started.</p>
+    </div>
+
+    <div class="unit-card unit-card--featured">
+      <p class="unit-card__number">Unit 2 · Pilot</p>
+      <p class="unit-card__title">Cell Biology</p>
+      <span class="unit-card__status unit-card__status--building">Building · 2 sections previewable</span>
+      <p class="unit-card__desc">Cell theory, cell structure, and membrane transport, anchored in the idli batter fermentation phenomenon. Three sections planned; two are live.</p>
+      <div class="unit-card__links">
+        <a href="/units/2/section1">→ Section 1 · Cell theory</a>
+        <a href="/units/2/section2">→ Section 2 · Inside the cell</a>
+        <a href="/units/2/design-brief">→ Design brief</a>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <p class="unit-card__number">Unit 3</p>
+      <p class="unit-card__title">Cellular Energetics</p>
+      <span class="unit-card__status unit-card__status--planning">Unit plan + resources</span>
+      <p class="unit-card__desc">Photosynthesis, cellular respiration, autotrophs vs. heterotrophs. CK-12 resource set staged.</p>
+    </div>
+
+    <div class="unit-card">
+      <p class="unit-card__number">Unit 4</p>
+      <p class="unit-card__title">Matter and Energy</p>
+      <span class="unit-card__status unit-card__status--planning">Unit plan only</span>
+      <p class="unit-card__desc">Matter cycling and energy flow in living systems.</p>
+    </div>
+
+    <div class="unit-card">
+      <p class="unit-card__number">Unit 5</p>
+      <p class="unit-card__title">DNA to Protein Synthesis</p>
+      <span class="unit-card__status unit-card__status--planning">Unit plan only</span>
+      <p class="unit-card__desc">DNA structure, replication, transcription, translation.</p>
+    </div>
+
+    <div class="unit-card">
+      <p class="unit-card__number">Unit 6</p>
+      <p class="unit-card__title">Mendelian Genetics</p>
+      <span class="unit-card__status unit-card__status--planning">Unit plan only</span>
+      <p class="unit-card__desc">Inheritance, Punnett squares, sex-linked traits, pedigree analysis.</p>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <p class="callout__label">For colleagues</p>
+    <p style="margin:0">The page architecture is intentionally portable. The interactive HTML, the shared CSS/JS, the Apps Script deployment pattern, the Google Sheet content schema — all in the public repo at <a href="https://github.com/matthewignash/aisc-g9-biology">github.com/matthewignash/aisc-g9-biology</a>. If you want to adapt any of this for your own school, fork it.</p>
+  </div>
+
+  <section class="section--muted">
+    <h2>Why this redesign</h2>
+    <p>A 2025–26 student survey at AISC found that science is the class where 9th graders use AI the most. The honest interpretation is that current materials aren't meeting student needs — students are filling the gap with AI tutors. The traditional pattern (lecture slides → reading → worksheets → test) inherits from a different teacher and is not what I want to continue.</p>
+    <p>The redesign specifies a student-facing experience that is <em>hard to shortcut with AI</em>, <em>engaging enough that students don't reach for AI first</em>, and <em>deployable inside AISC's IT environment</em>. The full rationale is in the Unit 2 design brief.</p>
+    <p><a href="/units/2/design-brief">→ Read the Unit 2 design brief</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built by Matthew Ignash · American International School Chennai · <a href="https://github.com/matthewignash/aisc-g9-biology">source on GitHub</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/units/2/section1",
+      "destination": "/HS G9 Bio Unit 2 Cell Biology (25-6)/Section 1 Interactive/section1.html"
+    },
+    {
+      "source": "/units/2/section2",
+      "destination": "/HS G9 Bio Unit 2 Cell Biology (25-6)/Section 2 Interactive/section2.html"
+    },
+    {
+      "source": "/units/2/design-brief",
+      "destination": "/HS G9 Bio Unit 2 Cell Biology (25-6)/Unit 2 Design Brief - Interactive Materials.md"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
