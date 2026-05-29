@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Searchable Reference — Cell Biology Study Guide</title>
+<link rel="stylesheet" href="css/app.css" />
+<style>
+  .ref-grid { display: grid; grid-template-columns: 200px minmax(0,1fr) 220px; gap: 32px; align-items: start; }
+  .ref-nav { position: sticky; top: 76px; }
+  .ref-nav h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--c-muted); }
+  .ref-nav a { display: block; padding: 5px 0; text-decoration: none; color: var(--c-text); font-size: .95rem; }
+  .ref-nav a:hover { color: var(--c-coral); }
+  .ref-aside { position: sticky; top: 76px; }
+  .ref-search { width: 100%; font: inherit; padding: 9px 12px; border: 1px solid var(--c-rule); border-radius: 8px; }
+  .ref-count { font-size: .85rem; color: var(--c-muted); margin-top: 10px; }
+  .ref-section { scroll-margin-top: 76px; padding-bottom: 32px; border-bottom: 1px solid var(--c-rule); margin-bottom: 32px; }
+  .ref-section.hidden { display: none; }
+  .ref-section > .summary { color: var(--c-muted); font-style: italic; margin-top: -6px; }
+  mark { background: #fdf0c9; padding: 0 1px; }
+  .to-top { position: fixed; right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--c-coral); color: #4a2c0c; border: none; font-size: 1.2rem; cursor: pointer; display: none; }
+  .to-top.show { display: block; }
+  @media (max-width: 900px) { .ref-grid { grid-template-columns: 1fr; } .ref-nav, .ref-aside { position: static; } .ref-aside { order: -1; } }
+</style>
+</head>
+<body>
+<div id="topbar"></div>
+<div class="shell">
+  <div class="ref-grid">
+    <nav class="ref-nav" id="nav" aria-label="Sections"></nav>
+    <main id="main"></main>
+    <aside class="ref-aside">
+      <label for="search" class="eyebrow">Search</label>
+      <input id="search" class="ref-search" type="search" placeholder="Filter sections…" autocomplete="off" />
+      <p class="ref-count" id="count"></p>
+    </aside>
+  </div>
+</div>
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<script src="data/study-guide.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/searchable.js"></script>
+</body>
+</html>
