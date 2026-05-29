@@ -24,11 +24,11 @@ This repo contains **only the public-facing site and the student-facing interact
     ├── design-brief.md     Why this exists, four design lenses, phenomenon
     ├── build-guide.md      Build spec for Sections 2/3 + landing
     ├── section-1/          Cell theory & levels of life (deployed)
-    │   ├── section1.html
+    │   ├── index.html       Standalone interactive (also served at /unit-2/section-1/)
     │   ├── content-snapshot.json
     │   └── apps-script/
     └── section-2/          Inside the cell (built, awaiting Apps Script package)
-        └── section2.html
+        └── index.html       Standalone interactive (also served at /unit-2/section-2/)
 ```
 
 ## How students reach this material
