@@ -1,22 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/unit-2/section-1",
-      "destination": "/unit-2/section-1/section1.html"
-    },
-    {
-      "source": "/unit-2/section-2",
-      "destination": "/unit-2/section-2/section2.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*).html",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    }
-  ]
+  "trailingSlash": false
 }
