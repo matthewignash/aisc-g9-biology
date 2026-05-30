@@ -43,7 +43,11 @@ a:hover { color: var(--c-coral); }
   padding: 12px 24px;
   background: var(--c-teal-deep); color: #fff;
 }
-.topbar .brand { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; }
+.topbar .sitelinks { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.topbar .sitelinks a { color: #cfe0df; text-decoration: none; padding: 4px 9px; border-radius: 6px; font-weight: 600; }
+.topbar .sitelinks a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.topbar .sitelinks a[aria-current="page"] { color: #fff; background: var(--c-sage); }
+.topbar .sitelinks .brand { font-family: var(--font-serif); font-size: 1.05rem; color: #fff; }
 .topbar .spacer { flex: 1; }
 .topbar .approach-switch { display: flex; gap: 4px; align-items: center; }
 .topbar .approach-switch a {

@@ -36,6 +36,11 @@ h3 { font-size: 1.125rem; margin: 0 0 8px 0; }
 p { margin: 0 0 16px 0; }
 a { color: var(--c-teal-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover { color: var(--c-coral); }
+.site-nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; background: var(--c-teal-deep); padding: 11px 24px; }
+.site-nav a { color: #cfe0df; text-decoration: none; padding: 5px 11px; border-radius: 6px; font-weight: 600; font-size: .95rem; }
+.site-nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.site-nav a[aria-current="page"] { color: #fff; background: var(--c-sage); }
+.site-nav .brand { font-family: var(--font-serif); font-size: 1.05rem; color: #fff; }
 .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px; }
 .hero {
   background: linear-gradient(135deg, var(--c-teal-soft) 0%, var(--c-bg) 70%);
@@ -113,6 +118,13 @@ footer a { color: var(--c-muted); }
 </style>
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <a class="brand" href="/" aria-current="page">G9 Biology</a>
+  <a href="/unit-2/section-1/">Section 1</a>
+  <a href="/unit-2/section-2/">Section 2</a>
+  <a href="/study-guide-prototype/">Study Guide</a>
+</nav>
 
 <header class="hero">
   <div class="hero__inner">

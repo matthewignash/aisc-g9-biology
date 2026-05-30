@@ -2,7 +2,11 @@
 const GUIDE = window.STUDY_GUIDE;
 
 function el(tag, props = {}, children = []) {
-  const node = Object.assign(document.createElement(tag), props);
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(props)) {
+    if (key.includes("-")) node.setAttribute(key, value);
+    else node[key] = value;
+  }
   for (const child of [].concat(children)) {
     node.append(child instanceof Node ? child : document.createTextNode(child));
   }
@@ -19,11 +23,22 @@ function topbar(currentApproach) {
     links.push(el("a", attrs));
   });
   return el("header", { className: "topbar" }, [
-    el("a", { className: "brand", href: "/study-guide-prototype/", style: "color:#fff;text-decoration:none", textContent: "Cell Biology Study Guide" }),
+    siteLinks("study-guide"),
     el("span", { className: "spacer" }),
     el("nav", { className: "approach-switch", "aria-label": "Switch approach" }, links),
-    el("a", { className: "back", href: "/study-guide-prototype/", textContent: "↩ Back to comparison" })
+    el("a", { className: "back", href: "/study-guide-prototype/", textContent: "↩ Comparison" })
   ]);
+}
+
+function siteLinks(current) {
+  const items = [["home", "/", "G9 Biology"], ["section-1", "/unit-2/section-1/", "Section 1"],
+    ["section-2", "/unit-2/section-2/", "Section 2"], ["study-guide", "/study-guide-prototype/", "Study Guide"]];
+  return el("nav", { className: "sitelinks", "aria-label": "Site" }, items.map(([key, href, label]) => {
+    const attrs = { href, textContent: label };
+    if (key === "home") attrs.className = "brand";
+    if (key === current) attrs["aria-current"] = "page";
+    return el("a", attrs);
+  }));
 }
 
 function withVocabTooltips(text, vocab) {
