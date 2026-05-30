@@ -20,15 +20,17 @@ This repo contains **only the public-facing site and the student-facing interact
 │   ├── js/                 storage, section-shell, practice modules, etc.
 │   ├── conventions.md      Curriculum-wide conventions
 │   └── content-schema.md   Google Sheet content schema
-└── unit-2/                 Cell Biology (pilot scope)
-    ├── design-brief.md     Why this exists, four design lenses, phenomenon
-    ├── build-guide.md      Build spec for Sections 2/3 + landing
-    ├── section-1/          Cell theory & levels of life (deployed)
-    │   ├── index.html       Standalone interactive (also served at /unit-2/section-1/)
-    │   ├── content-snapshot.json
-    │   └── apps-script/
-    └── section-2/          Inside the cell (built, awaiting Apps Script package)
-        └── index.html       Standalone interactive (also served at /unit-2/section-2/)
+├── unit-2/                 Cell Biology (pilot scope)
+│   ├── design-brief.md     Why this exists, four design lenses, phenomenon
+│   ├── build-guide.md      Build spec for Sections 2/3 + landing
+│   ├── section-1/          Cell theory & levels of life (deployed)
+│   │   ├── index.html       Standalone interactive (also served at /unit-2/section-1/)
+│   │   ├── content-snapshot.json
+│   │   └── apps-script/
+│   └── section-2/          Inside the cell (built, awaiting Apps Script package)
+│       └── index.html       Standalone interactive (also served at /unit-2/section-2/)
+└── study-guide-prototype/  Cell Biology study guide, three scaffolding styles —
+                            evaluation prototype for adult review, not student-production
 ```
 
 ## How students reach this material
@@ -54,6 +56,7 @@ See [`_shared/conventions.md`](./_shared/conventions.md) and [`_shared/content-s
 | Unit 2 | Section 2 — Inside the cell | ✓ | — | — |
 | Unit 2 | Section 3 — Membrane & transport | — | — | — |
 | Unit 2 | Landing | — | n/a | — |
+| Unit 2 | Study guide prototype (3 approaches, for review) | ✓ | n/a | ✓ |
 
 Other units (1, 3, 4, 5, 6) are planned but the public interactives haven't been built yet.
 
