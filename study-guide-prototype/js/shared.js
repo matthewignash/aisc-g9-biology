@@ -10,7 +10,7 @@ function el(tag, props = {}, children = []) {
 }
 
 function topbar(currentApproach) {
-  const approaches = [["a", "searchable.html", "A"], ["b", "guided.html", "B"], ["c", "hybrid.html", "C"]];
+  const approaches = [["a", "/study-guide-prototype/searchable", "A"], ["b", "/study-guide-prototype/guided", "B"], ["c", "/study-guide-prototype/hybrid", "C"]];
   const links = [];
   approaches.forEach(([key, href, label], i) => {
     if (i > 0) links.push(el("span", { className: "sep" }, "·"));
@@ -19,10 +19,10 @@ function topbar(currentApproach) {
     links.push(el("a", attrs));
   });
   return el("header", { className: "topbar" }, [
-    el("a", { className: "brand", href: "index.html", style: "color:#fff;text-decoration:none", textContent: "Cell Biology Study Guide" }),
+    el("a", { className: "brand", href: "/study-guide-prototype/", style: "color:#fff;text-decoration:none", textContent: "Cell Biology Study Guide" }),
     el("span", { className: "spacer" }),
     el("nav", { className: "approach-switch", "aria-label": "Switch approach" }, links),
-    el("a", { className: "back", href: "index.html", textContent: "↩ Back to comparison" })
+    el("a", { className: "back", href: "/study-guide-prototype/", textContent: "↩ Back to comparison" })
   ]);
 }
 
