@@ -30,11 +30,13 @@ function topbar(currentApproach) {
   ]);
 }
 
+const SITE_BASE = "https://aisc-g9-biology.vercel.app";
+
 function siteLinks(current) {
   const items = [["home", "/", "G9 Biology"], ["section-1", "/unit-2/section-1/", "Section 1"],
     ["section-2", "/unit-2/section-2/", "Section 2"], ["study-guide", "/study-guide-prototype/", "Study Guide"]];
-  return el("nav", { className: "sitelinks", "aria-label": "Site" }, items.map(([key, href, label]) => {
-    const attrs = { href, textContent: label };
+  return el("nav", { className: "sitelinks", "aria-label": "Site" }, items.map(([key, path, label]) => {
+    const attrs = { href: SITE_BASE + path, textContent: label, target: "_top" };
     if (key === "home") attrs.className = "brand";
     if (key === current) attrs["aria-current"] = "page";
     return el("a", attrs);
