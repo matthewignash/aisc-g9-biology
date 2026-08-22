@@ -36,3 +36,24 @@ Thumbs.db
 
 **/Prior Year Materials/
 HS G9 Bio Unit 2 Cell Biology (25-6)/Unit 1 - Cell Biology/
+
+# ============================================================================
+# Excluded authoring source — DO NOT TRACK
+#
+# The README says this repo holds only the public-facing site and the
+# student-facing interactives, and that the unit plans, decks and assessments
+# live in Drive and Google Classroom. That was true only because nobody had
+# run `git add -A`. These folders are sitting in the working tree right now,
+# and they include the Unit 3 summative paper, all three checkpoints, every
+# mark scheme, the marking slip, both student lab sheets and the teacher prep
+# sheet. The repo is public and Vercel deploys the whole of it, so one
+# `git add -A` would put a live exam paper and its mark scheme on the internet.
+#
+# To audit what's excluded:
+#   git status --ignored | grep "HS G9 Bio Unit"
+#
+# To track one deliberately, if you ever want to:
+#   git add -f "<path>"
+# ============================================================================
+
+HS G9 Bio Unit */

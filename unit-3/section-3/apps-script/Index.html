@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why Cells Stay Small · G9 Biology</title>
+<style>
+:root {
+  --c-teal-deep: #0F3D3E;
+  --c-sage: #7FB069;
+  --c-coral: #F2A65A;
+  --c-bg: #FAFAF7;
+  --c-text: #1A2B2C;
+  --c-muted: #5E6F70;
+  --c-rule: #D9D7CE;
+  --c-error: #B23A48;
+  --c-coral-soft: #FBE3CC;
+  --c-sage-soft: #DCEED0;
+  --c-teal-soft: #D6E5E5;
+  --font-serif: Georgia, "Charter", "Iowan Old Style", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-h1: 2.25rem;
+  --fs-h2: 1.625rem;
+  --fs-h3: 1.25rem;
+  --lh-body: 1.6;
+  --lh-tight: 1.25;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --content-width: 720px;
+  --shell-width: 1080px;
+}
+@media (max-width: 768px) {
+  :root { --fs-body: 16px; --fs-h1: 1.875rem; --fs-h2: 1.375rem; --fs-h3: 1.125rem; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--c-teal-deep);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--s-4) 0;
+  font-weight: 600;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); margin-top: var(--s-7); }
+h3 { font-size: var(--fs-h3); margin-top: var(--s-5); }
+p { margin: 0 0 var(--s-4) 0; }
+a { color: var(--c-teal-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--c-coral); }
+:focus-visible { outline: 2px solid var(--c-coral); outline-offset: 2px; border-radius: 3px; }
+button { font-family: inherit; font-size: inherit; cursor: pointer; }
+input, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+.shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--s-7);
+  max-width: var(--shell-width);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5);
+}
+.shell__main { max-width: var(--content-width); min-width: 0; }
+.shell__main > section { margin-bottom: var(--s-8); scroll-margin-top: var(--s-5); }
+@media (max-width: 1023px) {
+  .shell { grid-template-columns: 1fr; gap: var(--s-5); padding: var(--s-4); }
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.toc { position: sticky; top: var(--s-5); align-self: start; border-left: 2px solid var(--c-rule); padding-left: var(--s-4); font-size: var(--fs-small); }
+.toc__label { text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: var(--s-3); }
+.toc ol { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--s-2); }
+.toc a { text-decoration: none; color: var(--c-muted); display: block; padding: var(--s-1) 0; }
+.toc a:hover { color: var(--c-teal-deep); }
+.toc a[aria-current="true"] { color: var(--c-teal-deep); font-weight: 600; }
+@media (max-width: 1023px) {
+  .toc { position: relative; top: 0; border-left: none; border-bottom: 1px solid var(--c-rule); padding: 0 0 var(--s-4) 0; }
+  .toc ol { flex-direction: row; flex-wrap: wrap; gap: var(--s-4); }
+}
+.section-marker {
+  display: inline-block; font-family: var(--font-serif); font-size: var(--fs-small);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-coral); margin-bottom: var(--s-2);
+}
+.phenomenon { background: var(--c-teal-soft); border-radius: var(--radius-lg); padding: var(--s-5); }
+.phenomenon__scene { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.55; color: var(--c-teal-deep); }
+.phenomenon__prompt { font-weight: 600; margin-top: var(--s-4); }
+.video-placeholder, .img-placeholder {
+  background: repeating-linear-gradient(45deg, var(--c-rule), var(--c-rule) 8px, var(--c-bg) 8px, var(--c-bg) 16px);
+  border: 1px dashed var(--c-muted); color: var(--c-muted); padding: var(--s-6) var(--s-4);
+  text-align: center; border-radius: var(--radius); font-size: var(--fs-small); font-style: italic;
+}
+.btn {
+  display: inline-block; background: var(--c-coral); color: #fff; border: none;
+  border-radius: var(--radius); padding: var(--s-3) var(--s-5); font-weight: 600; text-decoration: none;
+}
+.btn:hover { background: #E89042; color: #fff; }
+.btn--secondary { background: transparent; color: var(--c-teal-deep); border: 1.5px solid var(--c-teal-deep); }
+.btn--secondary:hover { background: var(--c-teal-soft); color: var(--c-teal-deep); }
+.input, .textarea {
+  width: 100%; border: 1.5px solid var(--c-rule); background: #fff;
+  border-radius: var(--radius); padding: var(--s-3);
+}
+.textarea { min-height: 120px; resize: vertical; }
+.input:focus, .textarea:focus { border-color: var(--c-teal-deep); outline: 2px solid var(--c-coral); outline-offset: 0; }
+.practice { border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: var(--s-5); background: #fff; margin-bottom: var(--s-5); }
+.practice__label { font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: var(--s-2); }
+.practice__prompt { font-weight: 600; margin-bottom: var(--s-4); }
+.mcq-option {
+  display: block; width: 100%; text-align: left; background: var(--c-bg);
+  border: 1.5px solid var(--c-rule); border-radius: var(--radius);
+  padding: var(--s-3) var(--s-4); margin-bottom: var(--s-2);
+}
+.mcq-option:hover { border-color: var(--c-teal-deep); }
+.mcq-option[aria-pressed="true"] { border-color: var(--c-teal-deep); background: var(--c-teal-soft); }
+.mcq-option.is-correct { border-color: var(--c-sage); background: var(--c-sage-soft); }
+.mcq-option.is-incorrect { border-color: var(--c-error); background: #F5DDE0; }
+.mcq-option:disabled { cursor: default; }
+.mcq-feedback { margin-top: var(--s-3); font-size: var(--fs-small); color: var(--c-muted); }
+.mcq-feedback.is-correct { color: var(--c-teal-deep); }
+.mcq-feedback.is-incorrect { color: var(--c-error); }
+.fill-row { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
+.fill-row .input { flex: 1 1 200px; }
+.fill-feedback { margin-top: var(--s-2); font-size: var(--fs-small); }
+.fill-feedback.is-correct { color: var(--c-teal-deep); }
+.fill-feedback.is-incorrect { color: var(--c-error); }
+.drag-zone {
+  display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3);
+  background: var(--c-bg); border: 1.5px dashed var(--c-rule); border-radius: var(--radius); min-height: 60px;
+}
+.drag-card {
+  background: #fff; border: 1.5px solid var(--c-rule); border-radius: var(--radius);
+  padding: var(--s-3) var(--s-4); cursor: grab; user-select: none; touch-action: none;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+.drag-card:active { cursor: grabbing; }
+.drag-card.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 10px 24px rgba(15, 61, 62, 0.18);
+  border-color: var(--c-teal-deep);
+  transform: scale(1.02);
+  transition: none;
+}
+.drag-card.is-misplaced { border-color: var(--c-error); background: #F5DDE0; }
+.drag-card.is-correct { border-color: var(--c-sage); background: var(--c-sage-soft); }
+.drag-placeholder {
+  background: var(--c-coral-soft);
+  border: 1.5px dashed var(--c-coral);
+  border-radius: var(--radius);
+  transition: height 120ms ease;
+}
+.drag-handle { display: inline-block; margin-right: var(--s-3); color: var(--c-muted); letter-spacing: 2px; user-select: none; }
+.ai-block { background: #F1F4F4; border-left: 4px solid var(--c-muted); border-radius: var(--radius); padding: var(--s-4); margin-bottom: var(--s-4); line-height: 1.65; }
+.ai-block__source { font-size: var(--fs-small); color: var(--c-muted); margin-bottom: var(--s-2); text-transform: uppercase; letter-spacing: 0.08em; }
+.ai-error-marker { background: transparent; border-bottom: 2px dotted var(--c-muted); padding: 0 1px; cursor: pointer; }
+.ai-error-marker:hover { background: var(--c-coral-soft); }
+.ai-error-marker.is-selected { background: var(--c-coral-soft); border-bottom-color: var(--c-coral); }
+.ai-error-marker.is-revealed-correct { background: var(--c-sage-soft); border-bottom: 2px solid var(--c-sage); }
+.ai-error-marker.is-revealed-missed { background: #F5DDE0; border-bottom: 2px solid var(--c-error); }
+.ai-error-list { margin-top: var(--s-4); padding-left: 0; list-style: none; }
+.ai-error-list li { border-top: 1px solid var(--c-rule); padding: var(--s-3) 0; }
+.levels { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: var(--s-5); }
+.levels__toggle { display: inline-flex; background: var(--c-bg); border-radius: var(--radius); border: 1px solid var(--c-rule); overflow: hidden; margin-bottom: var(--s-4); }
+.levels__toggle button { border: none; background: transparent; padding: var(--s-2) var(--s-4); color: var(--c-muted); }
+.levels__toggle button[aria-pressed="true"] { background: var(--c-teal-deep); color: #fff; }
+.levels__stage { display: flex; gap: var(--s-5); align-items: center; flex-wrap: wrap; }
+.levels__figure { flex: 0 0 200px; height: 200px; background: var(--c-bg); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+.levels__figure svg { width: 80%; height: 80%; }
+.levels__body { flex: 1 1 240px; min-width: 0; }
+.levels__index { font-family: var(--font-serif); color: var(--c-coral); font-size: var(--fs-small); letter-spacing: 0.08em; text-transform: uppercase; }
+.levels__name { font-size: var(--fs-h3); color: var(--c-teal-deep); margin: var(--s-1) 0 var(--s-2) 0; }
+.levels__label { font-style: italic; color: var(--c-muted); margin-bottom: var(--s-3); }
+.levels__controls { display: flex; gap: var(--s-3); margin-top: var(--s-4); }
+.levels__controls button[disabled] { opacity: 0.4; cursor: not-allowed; }
+.revisit__prior { background: var(--c-sage-soft); border-radius: var(--radius); padding: var(--s-4); margin-bottom: var(--s-4); font-style: italic; }
+.revisit__prior strong { font-style: normal; color: var(--c-teal-deep); }
+.timeline { margin: var(--s-5) 0; padding: var(--s-4) 0; }
+.timeline svg { width: 100%; height: auto; display: block; }
+.timeline figcaption { font-size: var(--fs-small); color: var(--c-muted); text-align: center; margin-top: var(--s-2); font-style: italic; }
+.callout { border-left: 4px solid var(--c-coral); background: var(--c-coral-soft); padding: var(--s-3) var(--s-4); border-radius: var(--radius); margin: var(--s-4) 0; }
+.callout--idli { border-left-color: var(--c-sage); background: var(--c-sage-soft); }
+.callout__label { font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-teal-deep); font-weight: 600; margin-bottom: var(--s-1); }
+.reset-row { margin-top: var(--s-8); padding-top: var(--s-4); border-top: 1px solid var(--c-rule); font-size: var(--fs-small); color: var(--c-muted); text-align: center; }
+.reset-row button { background: none; border: none; color: var(--c-muted); text-decoration: underline; padding: 0; }
+.saved-indicator { display: inline-block; margin-left: var(--s-3); font-size: var(--fs-small); color: var(--c-sage); opacity: 0; transition: opacity 0.2s ease-in-out; }
+.saved-indicator.is-visible { opacity: 1; }
+
+/* Section 3 only: the data table and the cube model. Everything else comes from _shared/css. */
+.table-wrap { overflow-x: auto; margin: 0 0 var(--s-5) 0; }
+.data-table { border-collapse: collapse; width: 100%; min-width: 420px; font-size: var(--fs-small); }
+.data-table caption { text-align: left; color: var(--c-muted); font-size: var(--fs-small); padding-bottom: var(--s-2); }
+.data-table th, .data-table td { border: 1px solid var(--c-rule); padding: var(--s-2) var(--s-3); text-align: left; }
+.data-table thead th { background: var(--c-teal-soft); color: var(--c-teal-deep); font-family: var(--font-serif); }
+.data-table tbody tr:nth-child(even) { background: var(--c-bg); }
+
+.cube-model { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: var(--s-5); }
+.cube-model__control { margin-bottom: var(--s-4); }
+.cube-model__control label { display: block; font-weight: 600; color: var(--c-teal-deep); margin-bottom: var(--s-2); }
+.cube-model__control input[type="range"] { width: 100%; accent-color: var(--c-coral); }
+.cube-model__control input[type="range"]:focus-visible { outline: 2px solid var(--c-coral); outline-offset: 2px; }
+.cube-model__stage { display: flex; gap: var(--s-5); align-items: center; flex-wrap: wrap; }
+.cube-model__figure { flex: 0 0 220px; }
+.cube-model__figure svg { width: 100%; height: auto; }
+.cube-model__readout { flex: 1 1 260px; min-width: 0; }
+.cube-model__row { display: flex; justify-content: space-between; gap: var(--s-3); margin: 0 0 var(--s-2) 0; border-bottom: 1px dotted var(--c-rule); padding-bottom: var(--s-2); }
+.cube-model__row span { color: var(--c-muted); font-size: var(--fs-small); }
+.cube-model__row strong { font-variant-numeric: tabular-nums; }
+.cube-model__row--ratio { border-bottom: none; }
+.cube-model__row--ratio strong { color: var(--c-teal-deep); font-size: var(--fs-h3); font-family: var(--font-serif); }
+.cube-model__verdict { background: var(--c-coral-soft); border-radius: var(--radius); padding: var(--s-3); margin: var(--s-3) 0 0 0; font-size: var(--fs-small); }
+.cube-model__plot { margin-top: var(--s-5); border-top: 1px solid var(--c-rule); padding-top: var(--s-4); }
+.cube-model__plot-label { font-weight: 600; color: var(--c-teal-deep); margin-bottom: var(--s-3); }
+.cube-model__plot svg { width: 100%; max-width: 420px; height: auto; }
+.cube-model__plot-note { color: var(--c-muted); font-size: var(--fs-small); margin: var(--s-3) 0 0 0; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="toc" aria-label="Section navigation">
+    <p class="toc__label">On this page</p>
+    <ol>
+      <li><a href="#sec-a">A. The phenomenon</a></li>
+      <li><a href="#sec-b">B. Reading</a></li>
+      <li><a href="#sec-c">C. Grow a cell</a></li>
+      <li><a href="#sec-d">D. Practice</a></li>
+      <li><a href="#sec-e">E. AI critique</a></li>
+      <li><a href="#sec-f">F. Revisit</a></li>
+    </ol>
+  </nav>
+
+  <main class="shell__main">
+    <header>
+      <h1 id="section-title">Why Cells Stay Small</h1>
+      <p style="color: var(--c-muted); font-size: var(--fs-small);">G9 Biology · Unit 3 Cell Structure · AISC</p>
+    </header>
+
+    <section id="sec-a" aria-labelledby="sec-a-h">
+      <span class="section-marker">A · Phenomenon</span>
+      <h2 id="sec-a-h">The batter doubled. The cells did not.</h2>
+      <div class="phenomenon">
+        <p id="phenomenon-scene" class="phenomenon__scene">Yesterday's batter is twice the volume it was. Put a drop of it under the microscope and the yeast cells are exactly the size they were at Lab 1. So are the bacteria. The bowl grew. The cells did not.</p>
+        <p class="phenomenon__prompt" id="phenomenon-prompt">The batter doubled and its cells stayed the same size. Why not just have bigger cells?</p>
+        <label for="initial-answer" class="sr-only">Your initial answer</label>
+        <textarea id="initial-answer" class="textarea" placeholder="Two or three sentences. A bigger yeast could hold more sugar and make more gas. What stops it?"></textarea>
+        <span id="initial-saved" class="saved-indicator">Saved</span>
+      </div>
+    </section>
+
+    <section id="sec-b" aria-labelledby="sec-b-h">
+      <span class="section-marker">B · Reading</span>
+      <h2 id="sec-b-h">Surface, volume, and what a growing cell does about it</h2>
+
+      <h3>B1. Everything goes in and out through the surface</h3>
+
+      <p>Everything a cell needs comes in through its surface: sugar, oxygen, water. Everything it throws out leaves the same way. But the cell does not <em>use</em> those things at the surface. It uses them throughout its whole volume, in every part of the cytoplasm, in every mitochondrion, all the way to the middle.</p>
+
+      <p>So a cell has two numbers that matter, and they are in competition. Its <strong>surface area</strong> is how much door it has. Its <strong>volume</strong> is how much inside there is to serve. What decides whether a cell can keep up is not either number on its own. It is the <strong>ratio</strong> between them: how much surface there is for every unit of volume.</p>
+
+      <p>Take a cube with a side of 1 cm. Surface area is 6 × 1 × 1, which is 6 cm². Volume is 1 × 1 × 1, which is 1 cm³. Six units of surface for every unit of volume, so the ratio is 6 : 1.</p>
+
+      <p>Now double the side to 2 cm. Surface area is 6 × 2 × 2, which is 24 cm². Volume is 2 × 2 × 2, which is 8 cm³. Both numbers went up, and the surface went up a lot. But the volume went up more. Three units of surface per unit of volume now. The ratio halved.</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>The same cube, four sizes. Only the last column matters to a cell.</caption>
+          <thead>
+            <tr><th scope="col">Side (cm)</th><th scope="col">Surface area (cm²)</th><th scope="col">Volume (cm³)</th><th scope="col">Surface area : volume</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>6</td><td>1</td><td><strong>6 : 1</strong></td></tr>
+            <tr><td>2</td><td>24</td><td>8</td><td><strong>3 : 1</strong></td></tr>
+            <tr><td>3</td><td>54</td><td>27</td><td><strong>2 : 1</strong></td></tr>
+            <tr><td>10</td><td>600</td><td>1000</td><td><strong>0.6 : 1</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Look at the 10 cm row. The volume has overtaken the surface area outright. There is now less than one unit of door for every unit of inside that needs feeding.</p>
+
+      <p>Here is the reason, and it is the whole idea in one line. <strong>Surface area grows with the square of the side. Volume grows with the cube of it.</strong> A cube always wins against a square in the end. That is not a fact about cells. It is a fact about shapes, and cells are stuck with it.</p>
+
+      <h3>B2. What a growing cell does about it</h3>
+
+      <p>A cell that keeps growing runs into a hard limit. Past a certain size, the middle of the cell is waiting too long for the food and oxygen that have to travel in from the surface, and sitting too long in the waste that has to travel back out. Nothing breaks. It just gets slower and slower, until the middle of the cell is not being served.</p>
+
+      <p>So what does a cell do when its ratio has fallen too far? It <strong>divides</strong>.</p>
+
+      <p>This is worth being precise about, because it is easy to get backwards. Dividing does not change how much cell there is. Two cells of half the volume each hold, between them, exactly the volume the one cell held. What changes is the <em>surface</em>. Cutting one cell into two makes new outside where there used to be inside, so the total surface area goes up while the total volume stays the same. Exchange speeds up again, because every unit of inside now has more door.</p>
+
+      <div class="callout callout--idli">
+        <p class="callout__label">Back to the bowl</p>
+        <p style="margin:0">This is why the batter doubled and the cells did not. The bowl did not grow because its yeast cells got bigger. It grew because there came to be more of them. Every one of those cells hit the same limit, divided, and handed the problem to two smaller cells that could cope with it. That is the third principle of cell theory doing an actual job.</p>
+      </div>
+
+      <p>You will not learn the stages of cell division in this course. Grade 7 covered them, and they come back later. What you need is the reason: <strong>a cell divides because its ratio fell.</strong></p>
+
+      <h3>B3. An agar cube is not a cell</h3>
+
+      <p>At Lab 2 you dropped agar cubes into acid and timed how long each one took to change color all the way to the center. That is a <strong>model</strong>, and every model is wrong somewhere. The agar has no membrane, so nothing about what enters it is selective: the acid goes wherever it can reach. It is not alive, it is not using what comes in, and the acid is not food. It does not grow, and it certainly does not divide. If you tried to explain a real cell using only the cube, you would get all of that wrong.</p>
+
+      <p>The cube gets exactly one thing right, and it is the one thing being tested: material enters through the surface and then has to travel to the center, and the bigger the block, the further that journey is. That is enough to make it a good model of the size problem and a bad model of everything else. Knowing which is which is a large part of what the summative asks you for.</p>
+    </section>
+
+    <section id="sec-c" aria-labelledby="sec-c-h">
+      <span class="section-marker">C · Interactive model</span>
+      <h2 id="sec-c-h">Grow a cell and watch the ratio fall</h2>
+      <p>Drag the slider to change the side of a model cell from 0.5 cm up to 10 cm. Surface area, volume and the ratio are recalculated as you go. Beside it is the class data from Lab 2: how long acid took to reach the center of a real agar cube at each size.</p>
+
+      <div id="cube-model" class="cube-model">
+        <div class="cube-model__control">
+          <label for="cube-slider">Side of the cube, in centimeters</label>
+          <input type="range" id="cube-slider" min="0.5" max="10" step="0.1" value="1">
+        </div>
+        <div class="cube-model__stage">
+          <div class="cube-model__figure" id="cube-figure" aria-live="off"></div>
+          <div class="cube-model__readout" id="cube-readout" aria-live="polite"></div>
+        </div>
+        <div class="cube-model__plot">
+          <p class="cube-model__plot-label">Time to clear against side of cube, from the class data</p>
+          <div id="cube-plot"></div>
+          <p class="cube-model__plot-note">Notice the shape. Doubling the side does not double the time, it more than quadruples it, and the gap gets worse the further right you go.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-d" aria-labelledby="sec-d-h">
+      <span class="section-marker">D · Practice</span>
+      <h2 id="sec-d-h">Practice</h2>
+      <p>The first two blocks mark themselves and record nothing, so go round as many times as you like. The last one is a piece of writing you keep.</p>
+
+      <h3>D1. Multiple choice</h3>
+      <div id="mcq-list"></div>
+
+      <h3>D2. Finish the cube table</h3>
+      <p>The 1 cm row is done for you: surface area 6 cm², volume 1 cm³, ratio 6 : 1. Work out the other two rows on paper first, then type them in.</p>
+      <div id="fill-list"></div>
+
+      <h3>D3. Claim, evidence, reasoning</h3>
+      <div class="practice">
+        <p class="practice__label">Short writing</p>
+        <p class="practice__prompt">Why are cells small, and what does a growing cell do about it? Make a claim in one sentence. Support it with two rows from the cube table, quoting the actual numbers. Then explain the reasoning that joins them: what enters where, what is used where, which one grows faster, and what that does to the ratio. Use the word <em>ratio</em> at least once. Aim for 150 to 250 words.</p>
+        <label class="sr-only" for="cer-response">Your CER response</label>
+        <textarea id="cer-response" class="textarea" style="min-height: 200px;" placeholder="Claim: ...&#10;Evidence: ...&#10;Reasoning: ..."></textarea>
+        <div style="display:flex; gap: var(--s-3); align-items: center; margin-top: var(--s-3); flex-wrap: wrap;">
+          <button type="button" id="cer-copy" class="btn">Copy to clipboard</button>
+          <span id="cer-count" style="color: var(--c-muted); font-size: var(--fs-small);"></span>
+          <span id="cer-saved" class="saved-indicator">Saved</span>
+        </div>
+        <p id="cer-status" style="margin-top: var(--s-3); font-size: var(--fs-small); color: var(--c-muted);"></p>
+      </div>
+    </section>
+
+    <section id="sec-e" aria-labelledby="sec-e-h">
+      <span class="section-marker">E · AI critique</span>
+      <h2 id="sec-e-h">An AI got this wrong</h2>
+      <p>Below is what an AI tool answered when it was asked, <em>"Why are cells small?"</em> Four things in it are wrong. Two of them are wrong in a way that sounds completely reasonable, which is the point. Click the parts you think are wrong, write the correction and the number from the table that proves it, then press "Reveal answers."</p>
+      <div class="ai-block">
+        <p class="ai-block__source">AI assistant · response</p>
+        <p id="ai-passage"></p>
+      </div>
+      <div>
+        <ul id="ai-explanations" class="ai-error-list"></ul>
+      </div>
+      <div style="display:flex; gap: var(--s-3); margin-top: var(--s-4); flex-wrap: wrap;">
+        <button type="button" id="ai-reveal" class="btn">Reveal answers</button>
+      </div>
+      <ul id="ai-reveal-list" class="ai-error-list"></ul>
+    </section>
+
+    <section id="sec-f" aria-labelledby="sec-f-h">
+      <span class="section-marker">F · Revisit</span>
+      <h2 id="sec-f-h">Would you change your answer?</h2>
+      <div id="revisit-recall" class="revisit__prior"></div>
+      <p id="revisit-prompt"></p>
+      <label class="sr-only" for="revisit-answer">Your revised answer</label>
+      <textarea id="revisit-answer" class="textarea" placeholder="Surface area, volume, ratio. And which number convinced you."></textarea>
+      <span id="revisit-saved" class="saved-indicator">Saved</span>
+    </section>
+
+    <div class="reset-row">
+      <button type="button" id="reset-section">Reset this page (erase my saved answers)</button>
+    </div>
+  </main>
+</div>
+
+<script>
+window.__CONTENT__ = <?!= contentJson ?>;
+</script>
+
+<script>
+// Shared: storage.js
+(function () {
+  const content = window.__CONTENT__ || {};
+  const meta = content.meta || {};
+  const unit = meta.unit_id || "x";
+  const section = meta.section_id || "x";
+  const prefix = "g9bio.u" + unit + ".s" + section + ".";
+  function key(field) { return prefix + field; }
+  function isAvailable() {
+    try { localStorage.setItem("__probe__", "1"); localStorage.removeItem("__probe__"); return true; }
+    catch (_) { return false; }
+  }
+  const fallback = new Map();
+  const available = isAvailable();
+  function read(field) {
+    if (!available) return fallback.get(field) ?? null;
+    return localStorage.getItem(key(field));
+  }
+  function write(field, value) {
+    if (!available) { fallback.set(field, String(value)); return; }
+    localStorage.setItem(key(field), String(value));
+  }
+  function remove(field) {
+    if (!available) { fallback.delete(field); return; }
+    localStorage.removeItem(key(field));
+  }
+  function clearAll() {
+    if (!available) { fallback.clear(); return; }
+    const toRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.indexOf(prefix) === 0) toRemove.push(k);
+    }
+    toRemove.forEach((k) => localStorage.removeItem(k));
+  }
+  window.G9Storage = { read, write, remove, clearAll, prefix, isAvailable: available };
+})();
+</script>
+
+<script>
+// Shared: section-shell.js
+(function () {
+  const store = window.G9Storage;
+  const content = window.__CONTENT__ || {};
+  const meta = content.meta || {};
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.from((r || document).querySelectorAll(s)); }
+  function pulse(indicator) {
+    if (!indicator) return;
+    indicator.classList.add("is-visible");
+    setTimeout(() => indicator.classList.remove("is-visible"), 1200);
+  }
+  function wireToc() {
+    const links = $$(".toc a[href^='#']");
+    if (!links.length) return;
+    const targets = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach((a) => {
+          a.setAttribute("aria-current", a.getAttribute("href") === "#" + id ? "true" : "false");
+        });
+      });
+    }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
+    targets.forEach((t) => observer.observe(t));
+  }
+  function debounce(fn, ms) {
+    let timer = null;
+    return function () { clearTimeout(timer); timer = setTimeout(fn, ms); };
+  }
+  function wireTextarea(textareaEl, savedEl, fieldKey) {
+    if (!textareaEl) return;
+    const prior = store.read(fieldKey);
+    if (prior) textareaEl.value = prior;
+    const save = debounce(() => { store.write(fieldKey, textareaEl.value); pulse(savedEl); }, 400);
+    textareaEl.addEventListener("input", save);
+  }
+  function wirePhenomenon() {
+    const promptEl = $("#phenomenon-prompt");
+    if (promptEl && meta.opening_question) promptEl.textContent = meta.opening_question;
+    wireTextarea($("#initial-answer"), $("#initial-saved"), "is-alive-initial");
+  }
+  function setRecall(recallEl, prior) {
+    recallEl.textContent = "";
+    if (!prior) {
+      const em = document.createElement("em");
+      em.textContent = "You didn't write an initial answer. Scroll back up to add one.";
+      recallEl.appendChild(em);
+      return;
+    }
+    const label = document.createElement("strong");
+    label.textContent = "What you said earlier: ";
+    recallEl.appendChild(label);
+    recallEl.appendChild(document.createTextNode(prior));
+  }
+  function wireRevisit() {
+    const recallEl = $("#revisit-recall");
+    const promptEl = $("#revisit-prompt");
+    if (promptEl && meta.revisit_prompt) promptEl.textContent = meta.revisit_prompt;
+    if (recallEl) setRecall(recallEl, store.read("is-alive-initial"));
+    wireTextarea($("#revisit-answer"), $("#revisit-saved"), "is-alive-revisit");
+  }
+  function wireReset() {
+    const btn = $("#reset-section");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const ok = window.confirm("Erase all your saved answers on this page? You can't undo this.");
+      if (!ok) return;
+      store.clearAll();
+      window.location.reload();
+    });
+  }
+  function applyMeta() {
+    const title = $("#section-title");
+    if (title && meta.section_title) title.textContent = meta.section_title;
+    const scene = $("#phenomenon-scene");
+    if (scene && meta.phenomenon_prompt) scene.textContent = meta.phenomenon_prompt;
+  }
+  function init() { applyMeta(); wireToc(); wirePhenomenon(); wireRevisit(); wireReset(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+  window.G9Shell = { pulse };
+})();
+</script>
+
+<script>
+// Shared: practice-mcq.js
+(function () {
+  const store = window.G9Storage;
+  const items = (window.__CONTENT__ && window.__CONTENT__.mcq) || [];
+  function makeOption(letter, text, item) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "mcq-option";
+    button.setAttribute("data-letter", letter);
+    button.setAttribute("aria-pressed", "false");
+    const label = document.createElement("span");
+    label.style.fontWeight = "600";
+    label.style.marginRight = "8px";
+    label.textContent = letter.toUpperCase() + ".";
+    button.appendChild(label);
+    button.appendChild(document.createTextNode(text));
+    button.addEventListener("click", () => selectOption(item, letter, button));
+    return button;
+  }
+  function disableAll(card) { Array.from(card.querySelectorAll(".mcq-option")).forEach((b) => { b.disabled = true; }); }
+  function revealCorrect(card, item) {
+    Array.from(card.querySelectorAll(".mcq-option")).forEach((b) => {
+      if (b.getAttribute("data-letter") === item.correct) b.classList.add("is-correct");
+    });
+  }
+  function showFeedback(card, item, picked) {
+    const fb = card.querySelector(".mcq-feedback");
+    const right = picked === item.correct;
+    fb.textContent = (right ? "Correct. " : "Not quite. ") + (item.explanation || "");
+    fb.classList.remove("is-correct", "is-incorrect");
+    fb.classList.add(right ? "is-correct" : "is-incorrect");
+  }
+  function selectOption(item, letter, button) {
+    const card = button.closest(".practice");
+    if (!card || card.dataset.answered === "true") return;
+    card.dataset.answered = "true";
+    button.setAttribute("aria-pressed", "true");
+    const right = letter === item.correct;
+    button.classList.add(right ? "is-correct" : "is-incorrect");
+    revealCorrect(card, item);
+    showFeedback(card, item, letter);
+    disableAll(card);
+    store.write("mcq." + item.id, letter);
+  }
+  function renderItem(item) {
+    const card = document.createElement("div");
+    card.className = "practice";
+    card.id = item.id;
+    card.setAttribute("role", "group");
+    card.setAttribute("aria-label", "Multiple choice question");
+    const label = document.createElement("p");
+    label.className = "practice__label";
+    label.textContent = "Multiple choice";
+    const prompt = document.createElement("p");
+    prompt.className = "practice__prompt";
+    prompt.textContent = item.prompt;
+    card.appendChild(label);
+    card.appendChild(prompt);
+    ["a", "b", "c", "d"].forEach((letter) => {
+      const text = item["option_" + letter];
+      if (text) card.appendChild(makeOption(letter, text, item));
+    });
+    const fb = document.createElement("p");
+    fb.className = "mcq-feedback";
+    card.appendChild(fb);
+    return card;
+  }
+  function restoreAnswer(card, item) {
+    const prior = store.read("mcq." + item.id);
+    if (!prior) return;
+    const btn = card.querySelector('.mcq-option[data-letter="' + prior + '"]');
+    if (btn) selectOption(item, prior, btn);
+  }
+  function mount() {
+    const host = document.getElementById("mcq-list");
+    if (!host) return;
+    items.forEach((item) => { const card = renderItem(item); host.appendChild(card); restoreAnswer(card, item); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: practice-fill.js
+(function () {
+  const store = window.G9Storage;
+  const items = (window.__CONTENT__ && window.__CONTENT__.fill_blank) || [];
+  function normalize(value, caseSensitive) {
+    const trimmed = String(value || "").trim();
+    return caseSensitive ? trimmed : trimmed.toLowerCase();
+  }
+  function isAccepted(value, item) {
+    const accepted = String(item.accepted_answers || "").split("|");
+    const target = normalize(value, item.case_sensitive);
+    return accepted.some((a) => normalize(a, item.case_sensitive) === target && target.length > 0);
+  }
+  function splitPrompt(prompt) { return String(prompt || "").split("____"); }
+  function makePromptFragment(prompt, input) {
+    const fragment = document.createDocumentFragment();
+    const parts = splitPrompt(prompt);
+    parts.forEach((part, i) => {
+      fragment.appendChild(document.createTextNode(part));
+      if (i < parts.length - 1) fragment.appendChild(input);
+    });
+    return fragment;
+  }
+  function showFeedback(fb, ok) {
+    fb.textContent = ok ? "Correct." : "Not yet — check the spelling and try again.";
+    fb.classList.remove("is-correct", "is-incorrect");
+    fb.classList.add(ok ? "is-correct" : "is-incorrect");
+  }
+  function makeInput(item) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "input";
+    input.setAttribute("aria-label", "Answer for " + item.id);
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.style.maxWidth = "260px";
+    return input;
+  }
+  function renderItem(item) {
+    const card = document.createElement("div");
+    card.className = "practice";
+    card.id = item.id;
+    const label = document.createElement("p");
+    label.className = "practice__label";
+    label.textContent = "Fill in the blank";
+    card.appendChild(label);
+    const prompt = document.createElement("p");
+    prompt.className = "practice__prompt fill-row";
+    const input = makeInput(item);
+    prompt.appendChild(makePromptFragment(item.prompt, input));
+    card.appendChild(prompt);
+    const fb = document.createElement("p");
+    fb.className = "fill-feedback";
+    card.appendChild(fb);
+    input.addEventListener("input", () => {
+      store.write("fill." + item.id, input.value);
+      if (!input.value) { fb.textContent = ""; fb.classList.remove("is-correct", "is-incorrect"); return; }
+      showFeedback(fb, isAccepted(input.value, item));
+    });
+    const prior = store.read("fill." + item.id);
+    if (prior) { input.value = prior; showFeedback(fb, isAccepted(prior, item)); }
+    return card;
+  }
+  function mount() {
+    const host = document.getElementById("fill-list");
+    if (!host) return;
+    items.forEach((item) => host.appendChild(renderItem(item)));
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: practice-cer.js
+(function () {
+  const store = window.G9Storage;
+  const shell = window.G9Shell;
+  function wordCount(value) {
+    const trimmed = String(value || "").trim();
+    if (!trimmed) return 0;
+    return trimmed.split(/\s+/).length;
+  }
+  function updateCount(textarea, countEl) {
+    countEl.textContent = wordCount(textarea.value) + " words (aim for 150–250)";
+  }
+  async function copyToClipboard(textarea, statusEl) {
+    const text = textarea.value;
+    if (!text.trim()) { statusEl.textContent = "Write something first, then copy."; return; }
+    try {
+      await navigator.clipboard.writeText(text);
+      statusEl.textContent = "Copied. Paste into your lab notebook.";
+    } catch (_) {
+      textarea.select();
+      const ok = document.execCommand && document.execCommand("copy");
+      statusEl.textContent = ok ? "Copied. Paste into your lab notebook." : "Copy didn't work — select the text and use Cmd/Ctrl+C.";
+    }
+  }
+  function mount() {
+    const textarea = document.getElementById("cer-response");
+    const copyBtn = document.getElementById("cer-copy");
+    const countEl = document.getElementById("cer-count");
+    const savedEl = document.getElementById("cer-saved");
+    const statusEl = document.getElementById("cer-status");
+    if (!textarea) return;
+    const prior = store.read("cer-response");
+    if (prior) textarea.value = prior;
+    if (countEl) updateCount(textarea, countEl);
+    let timer = null;
+    textarea.addEventListener("input", () => {
+      if (countEl) updateCount(textarea, countEl);
+      clearTimeout(timer);
+      timer = setTimeout(() => { store.write("cer-response", textarea.value); if (shell && savedEl) shell.pulse(savedEl); }, 400);
+    });
+    if (copyBtn) copyBtn.addEventListener("click", () => copyToClipboard(textarea, statusEl));
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: ai-critique.js
+(function () {
+  const store = window.G9Storage;
+  const data = (window.__CONTENT__ && window.__CONTENT__.ai_critique) || {};
+  const flawed = data.flawed_text || "";
+  const errors = data.errors || [];
+  function findIntervals() {
+    const list = [];
+    errors.forEach((err) => {
+      const idx = flawed.indexOf(err.marker);
+      if (idx < 0) return;
+      list.push({ start: idx, end: idx + err.marker.length, error: err });
+    });
+    list.sort((a, b) => a.start - b.start);
+    return list;
+  }
+  function makeMarkerSpan(err) {
+    const span = document.createElement("span");
+    span.className = "ai-error-marker";
+    span.dataset.errorId = err.error_id;
+    span.setAttribute("role", "button");
+    span.setAttribute("tabindex", "0");
+    span.setAttribute("aria-pressed", "false");
+    span.textContent = err.marker;
+    return span;
+  }
+  function renderPassage(host) {
+    host.textContent = "";
+    const intervals = findIntervals();
+    let cursor = 0;
+    intervals.forEach((iv) => {
+      if (iv.start > cursor) host.appendChild(document.createTextNode(flawed.slice(cursor, iv.start)));
+      host.appendChild(makeMarkerSpan(iv.error));
+      cursor = iv.end;
+    });
+    if (cursor < flawed.length) host.appendChild(document.createTextNode(flawed.slice(cursor)));
+  }
+  function readSelected() {
+    const raw = store.read("ai-critique.selected");
+    return new Set(raw ? raw.split(",").filter(Boolean) : []);
+  }
+  function writeSelected(set) { store.write("ai-critique.selected", Array.from(set).join(",")); }
+  function applySelection(host, selected) {
+    Array.from(host.querySelectorAll(".ai-error-marker")).forEach((s) => {
+      const on = selected.has(s.dataset.errorId);
+      s.classList.toggle("is-selected", on);
+      s.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+  function toggleSpan(span, selected, host) {
+    const id = span.dataset.errorId;
+    if (selected.has(id)) selected.delete(id);
+    else selected.add(id);
+    writeSelected(selected);
+    applySelection(host, selected);
+  }
+  function wireMarkers(host, selected) {
+    Array.from(host.querySelectorAll(".ai-error-marker")).forEach((span) => {
+      span.addEventListener("click", () => toggleSpan(span, selected, host));
+      span.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSpan(span, selected, host); }
+      });
+    });
+  }
+  function makeExplanationField(err) {
+    const li = document.createElement("li");
+    const label = document.createElement("p");
+    label.style.fontWeight = "600";
+    label.textContent = "Error " + err.error_id + " — explain why this is wrong:";
+    const ta = document.createElement("textarea");
+    ta.className = "textarea";
+    ta.id = "ai-explain-" + err.error_id;
+    ta.placeholder = "Cite the correct information from the reading.";
+    const prior = store.read("ai-critique.explain." + err.error_id);
+    if (prior) ta.value = prior;
+    let timer = null;
+    ta.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { store.write("ai-critique.explain." + err.error_id, ta.value); }, 400);
+    });
+    li.appendChild(label);
+    li.appendChild(ta);
+    return li;
+  }
+  function wireReveal(host) {
+    const btn = document.getElementById("ai-reveal");
+    const list = document.getElementById("ai-reveal-list");
+    if (!btn || !list) return;
+    btn.addEventListener("click", () => {
+      const selected = readSelected();
+      list.textContent = "";
+      errors.forEach((err) => {
+        const span = host.querySelector('.ai-error-marker[data-error-id="' + err.error_id + '"]');
+        const found = selected.has(err.error_id);
+        if (span) span.classList.add(found ? "is-revealed-correct" : "is-revealed-missed");
+        const li = document.createElement("li");
+        const head = document.createElement("p");
+        head.style.fontWeight = "600";
+        head.textContent = (found ? "Caught: " : "Missed: ") + err.marker;
+        const body = document.createElement("p");
+        body.textContent = err.correct_explanation;
+        li.appendChild(head);
+        li.appendChild(body);
+        list.appendChild(li);
+      });
+    });
+  }
+  function mount() {
+    const host = document.getElementById("ai-passage");
+    const explanations = document.getElementById("ai-explanations");
+    if (!host) return;
+    renderPassage(host);
+    const selected = readSelected();
+    applySelection(host, selected);
+    wireMarkers(host, selected);
+    if (explanations) errors.forEach((err) => explanations.appendChild(makeExplanationField(err)));
+    wireReveal(host);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: G9 Biology _shared/js/cube-model.js — keep in sync.
+// A slider that grows a model cell and redraws surface area, volume and the ratio live,
+// with the class time-to-clear data plotted beside it.
+
+(function () {
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  const store = window.G9Storage;
+  const classData = ((window.__CONTENT__ && window.__CONTENT__.class_data) || []).map((row) => ({
+    side: Number(row.side_cm),
+    minutes: Number(row.minutes),
+  }));
+
+  const MIN_SIDE = 0.5;
+  const MAX_SIDE = 10;
+  const PLOT = { width: 320, height: 240, left: 46, right: 14, top: 14, bottom: 36 };
+
+  function el(name, attrs, text) {
+    const node = document.createElementNS(SVG_NS, name);
+    Object.keys(attrs).forEach((k) => node.setAttribute(k, attrs[k]));
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function canvas(host, width, height, label) {
+    host.textContent = "";
+    const svg = el("svg", { viewBox: `0 0 ${width} ${height}`, role: "img" });
+    svg.setAttribute("aria-label", label);
+    host.appendChild(svg);
+    return svg;
+  }
+
+  function show(value) {
+    if (Number.isInteger(value)) return String(value);
+    return value >= 100 ? value.toFixed(0) : value.toFixed(value >= 10 ? 1 : 2);
+  }
+
+  function measure(side) {
+    const area = 6 * side * side;
+    const volume = side * side * side;
+    return { area, volume, ratio: area / volume };
+  }
+
+  function face(points, fill) {
+    return el("polygon", { points, fill, stroke: "#0F3D3E", "stroke-width": "1.6" });
+  }
+
+  function drawCube(host, side) {
+    // Drawn to a compressed scale, not to size. A 10 cm cube drawn true beside a 0.5 cm one
+    // would leave the small one a dot, and the number beside it is what carries the meaning.
+    const s = 30 + 130 * Math.sqrt((side - MIN_SIDE) / (MAX_SIDE - MIN_SIDE));
+    const d = s * 0.45;
+    const x = 110 - s / 2;
+    const y = 190 - s;
+    const svg = canvas(host, 220, 210, `A cube with side ${show(side)} centimeters`);
+    svg.appendChild(face(`${x},${y + s} ${x + s},${y + s} ${x + s},${y} ${x},${y}`, "#FFFFFF"));
+    svg.appendChild(face(`${x},${y} ${x + s},${y} ${x + s + d},${y - d} ${x + d},${y - d}`, "#EEF3F7"));
+    svg.appendChild(face(`${x + s},${y + s} ${x + s + d},${y + s - d} ${x + s + d},${y - d} ${x + s},${y}`, "#D6DEE6"));
+    svg.appendChild(el("text", { x: 110, y: 205, "text-anchor": "middle", "font-size": "13", fill: "#5E6F70" },
+      `side ${show(side)} cm`));
+  }
+
+  function plotPoints() {
+    const maxSide = Math.max(...classData.map((d) => d.side));
+    const maxMinutes = Math.max(...classData.map((d) => d.minutes));
+    const innerWidth = PLOT.width - PLOT.left - PLOT.right;
+    const innerHeight = PLOT.height - PLOT.top - PLOT.bottom;
+    return classData.map((d) => ({
+      data: d,
+      x: PLOT.left + (d.side / maxSide) * innerWidth,
+      y: PLOT.top + innerHeight - (d.minutes / maxMinutes) * innerHeight,
+    }));
+  }
+
+  function reading(d) {
+    return `${d.side} cm took ${d.minutes} ${d.minutes === 1 ? "minute" : "minutes"}`;
+  }
+
+  function plotDescription() {
+    const readings = classData.map(reading).join(", ");
+    return `Time to clear against side of cube, from the class data: ${readings}. The curve rises more and more steeply.`;
+  }
+
+  function axes(svg) {
+    const axisY = PLOT.height - PLOT.bottom;
+    const stroke = { stroke: "#0F3D3E", "stroke-width": "1.6" };
+    svg.appendChild(el("line", { x1: PLOT.left, y1: PLOT.top, x2: PLOT.left, y2: axisY, ...stroke }));
+    svg.appendChild(el("line", { x1: PLOT.left, y1: axisY, x2: PLOT.width - PLOT.right, y2: axisY, ...stroke }));
+    const midX = PLOT.left + (PLOT.width - PLOT.left - PLOT.right) / 2;
+    svg.appendChild(el("text", { x: midX, y: PLOT.height - 4, "text-anchor": "middle", "font-size": "11", fill: "#1A2B2C" },
+      "Side of cube (cm)"));
+    // Anchored at the middle of the axis, not at its top, so the rotated label grows in both
+    // directions from the center of the plot instead of running off the top of the box.
+    const labelY = PLOT.top + (axisY - PLOT.top) / 2;
+    svg.appendChild(el("text", { x: 14, y: labelY, "font-size": "11", fill: "#1A2B2C",
+      "text-anchor": "middle", transform: `rotate(-90 14 ${labelY})` }, "Time to clear (min)"));
+    const maxMinutes = Math.max(...classData.map((d) => d.minutes));
+    [[0, axisY], [maxMinutes, PLOT.top]].forEach(([value, y]) => {
+      svg.appendChild(el("text", { x: PLOT.left - 6, y: y + 4, "text-anchor": "end",
+        "font-size": "10", fill: "#5E6F70" }, String(value)));
+    });
+    return axisY;
+  }
+
+  function drawPlot(host) {
+    if (!classData.length) return;
+    const svg = canvas(host, PLOT.width, PLOT.height, plotDescription());
+    const axisY = axes(svg);
+    const points = plotPoints();
+    const path = points.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
+    svg.appendChild(el("path", { d: path, fill: "none", stroke: "#0F3D3E", "stroke-width": "1.6",
+      "stroke-dasharray": "4 3" }));
+    points.forEach((p) => {
+      const dot = el("circle", { cx: p.x.toFixed(1), cy: p.y.toFixed(1), r: 4, fill: "#F2A65A",
+        stroke: "#0F3D3E", "stroke-width": "1.4" });
+      dot.appendChild(el("title", {}, reading(p.data)));
+      svg.appendChild(dot);
+      svg.appendChild(el("text", { x: p.x.toFixed(1), y: axisY + 15, "text-anchor": "middle",
+        "font-size": "10", fill: "#5E6F70" }, String(p.data.side)));
+    });
+  }
+
+  function verdict(ratio) {
+    if (ratio >= 6) return "Plenty of surface for every unit of inside. Exchange keeps up easily.";
+    if (ratio >= 3) return "Still workable, but the volume is catching up with the surface.";
+    if (ratio >= 1) return "The volume is winning. The middle is waiting a long time now.";
+    return "Less than one unit of surface for every unit of inside. No cell lives like this.";
+  }
+
+  function row(host, label, value, extraClass) {
+    const p = document.createElement("p");
+    p.className = "cube-model__row" + (extraClass ? " " + extraClass : "");
+    const name = document.createElement("span");
+    name.textContent = label;
+    const strong = document.createElement("strong");
+    strong.textContent = value;
+    p.appendChild(name);
+    p.appendChild(strong);
+    host.appendChild(p);
+  }
+
+  function drawReadout(host, side) {
+    const m = measure(side);
+    host.textContent = "";
+    row(host, "Side", `${show(side)} cm`);
+    row(host, "Surface area, 6 x s x s", `${show(m.area)} cm²`);
+    row(host, "Volume, s x s x s", `${show(m.volume)} cm³`);
+    row(host, "Surface area : volume", `${show(m.ratio)} : 1`, "cube-model__row--ratio");
+    const note = document.createElement("p");
+    note.className = "cube-model__verdict";
+    note.textContent = verdict(m.ratio);
+    host.appendChild(note);
+  }
+
+  function mount() {
+    const root = document.getElementById("cube-model");
+    if (!root) return;
+    const slider = root.querySelector("#cube-slider");
+    const cubeHost = root.querySelector("#cube-figure");
+    const readout = root.querySelector("#cube-readout");
+    const saved = Number(store.read("cube-model.side"));
+    slider.value = saved >= MIN_SIDE && saved <= MAX_SIDE ? saved : 1;
+    function render() {
+      const side = Number(slider.value);
+      drawCube(cubeHost, side);
+      drawReadout(readout, side);
+      store.write("cube-model.side", side);
+    }
+    render();
+    drawPlot(root.querySelector("#cube-plot"));
+    slider.addEventListener("input", render);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+</body>
+</html>

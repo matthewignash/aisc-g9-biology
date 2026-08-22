@@ -1,0 +1,216 @@
+// G9 Biology · Unit 3 · Section 1 — Cell Theory and Evidence. One-time Sheet seeder.
+//
+// Run `seedSection1Sheet` ONCE from the Apps Script editor after creating the empty
+// Sheet. It creates or overwrites the content tabs.
+//
+// AFTER IT WORKS: delete this file from the Apps Script project. It is not needed for
+// serving the page, and leaving it in place means a stray Run could wipe your edits.
+
+const SEED_SNAPSHOT = JSON.parse(`{
+  "meta": {
+    "unit_id": 3,
+    "section_id": 1,
+    "section_title": "Cell Theory and Evidence",
+    "phenomenon_prompt": "A bowl of idli batter is mixed in the afternoon and left on the counter overnight. By morning it has nearly doubled in volume and it tastes slightly sour. Nothing was added to it. Something in that bowl did the work.",
+    "opening_question": "Is the batter alive? If something in it is alive, what?",
+    "revisit_prompt": "Now that you have worked through the page, would you change your answer? Say what changed your mind, or what would have to happen for you to change it."
+  },
+  "mcq": [
+    {
+      "id": "mcq-cell-theory-principles",
+      "prompt": "Which of the following is NOT one of the three principles of modern cell theory?",
+      "option_a": "All living things are made of one or more cells.",
+      "option_b": "The cell is the basic unit of structure and function in living things.",
+      "option_c": "All cells come from pre-existing cells.",
+      "option_d": "All cells contain a nucleus.",
+      "correct": "d",
+      "explanation": "Bacterial cells have no nucleus, and they are still cells. The three principles are about cells in general, not just cells with nuclei."
+    },
+    {
+      "id": "mcq-hooke",
+      "prompt": "Robert Hooke gave us the word 'cell' because the structures he saw reminded him of:",
+      "option_a": "Glass beads in a microscope slide",
+      "option_b": "Small rooms in a monastery",
+      "option_c": "Tiny machines",
+      "option_d": "Drops of water",
+      "correct": "b",
+      "explanation": "Hooke was looking at cork, and the empty boxes left by the dead plant cell walls looked like the small rooms, cellae in Latin, he already had a word for."
+    },
+    {
+      "id": "mcq-instrument-leeuwenhoek",
+      "prompt": "Leeuwenhoek saw living single-celled organisms and Hooke did not. What made the difference?",
+      "option_a": "Leeuwenhoek looked at pond water and Hooke never did.",
+      "option_b": "Leeuwenhoek ground his own single lenses, which magnified far more than Hooke's compound microscope.",
+      "option_c": "Leeuwenhoek worked in better light.",
+      "option_d": "Leeuwenhoek was a trained scientist and Hooke was not.",
+      "correct": "b",
+      "explanation": "The instrument decided what the claim could be. Hooke's compound microscope reached about x30; Leeuwenhoek's single lenses reached about x240, which is the difference between seeing empty boxes and seeing something swim."
+    },
+    {
+      "id": "mcq-schleiden-schwann",
+      "prompt": "Schleiden worked on plants and Schwann worked on animals. Which principle of cell theory did the two of them together establish?",
+      "option_a": "All cells come from pre-existing cells.",
+      "option_b": "All cells contain DNA.",
+      "option_c": "All living things are made of cells.",
+      "option_d": "Life does not appear from non-living matter.",
+      "correct": "c",
+      "explanation": "Neither could claim 'all living things' on their own. Plants plus animals is what makes the claim general, which is why the two names are always said together."
+    },
+    {
+      "id": "mcq-pasteur",
+      "prompt": "Sterile broth in a swan-neck flask stays clear for months. Tip the flask so the broth touches the bend, and it clouds within days. What does that show?",
+      "option_a": "Broth goes bad faster when it is moved.",
+      "option_b": "Air is needed for life.",
+      "option_c": "The microbes were in the dust, not made by the broth.",
+      "option_d": "Boiling destroys the nutrients in broth.",
+      "correct": "c",
+      "explanation": "Air reached the broth the whole time; only dust was trapped in the bend. So the thing that made the difference was the dust, which means the microbes came from outside. Life did not appear from the broth."
+    },
+    {
+      "id": "mcq-virchow",
+      "prompt": "The idea that 'all cells come from pre-existing cells' is most directly associated with which scientist?",
+      "option_a": "Robert Hooke",
+      "option_b": "Antonie van Leeuwenhoek",
+      "option_c": "Rudolf Virchow",
+      "option_d": "Matthias Schleiden",
+      "correct": "c",
+      "explanation": "Virchow watched cells divide and drew the conclusion together: omnis cellula e cellula, every cell from a cell."
+    },
+    {
+      "id": "mcq-batter-evidence",
+      "prompt": "You claim the ovals you can see in the batter are alive. Which observation is the strongest evidence?",
+      "option_a": "The batter smells different in the morning.",
+      "option_b": "Some ovals have a smaller bud growing out of one side.",
+      "option_c": "The batter is made from rice, which used to be alive.",
+      "option_d": "The bowl feels slightly warm.",
+      "correct": "b",
+      "explanation": "A bud is a cell making another cell, which is principle 3 happening in front of you. The other three are all about the batter, and the batter is the habitat, not the organism."
+    },
+    {
+      "id": "mcq-what-would-change-it",
+      "prompt": "Cell theory says all living things are made of cells. What kind of observation would count against that claim?",
+      "option_a": "Finding an organism nobody has looked at under a microscope yet.",
+      "option_b": "Finding a living organism with no cells at all.",
+      "option_c": "Finding a cell with no nucleus.",
+      "option_d": "Finding a cell that does not divide.",
+      "correct": "b",
+      "explanation": "A claim is only worth something if you can say what would break it. Cells without nuclei and cells that do not divide both exist and neither touches principle 1. A living thing made of no cells would end it."
+    }
+  ],
+  "fill_blank": [
+    {
+      "id": "fill-principle-1",
+      "prompt": "Principle 1 of cell theory: all living things are made of one or more ____.",
+      "accepted_answers": "cells|cell",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-principle-2",
+      "prompt": "Principle 2: the cell is the basic unit of ____ and function in living things.",
+      "accepted_answers": "structure",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-principle-3",
+      "prompt": "Principle 3: all cells come from ____ cells.",
+      "accepted_answers": "pre-existing|preexisting|pre existing|existing",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-hooke",
+      "prompt": "The scientist who coined the word 'cell' after looking at cork under a compound microscope was ____.",
+      "accepted_answers": "Hooke|Robert Hooke|R. Hooke|R Hooke",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-leeuwenhoek",
+      "prompt": "The Dutch draper who ground his own single lenses and was the first to see living single-celled organisms was ____.",
+      "accepted_answers": "Leeuwenhoek|van Leeuwenhoek|Antonie van Leeuwenhoek|Anton van Leeuwenhoek|Antoni van Leeuwenhoek",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-pasteur",
+      "prompt": "The swan-neck flask experiment, which showed that life does not appear from non-living matter, was run by ____.",
+      "accepted_answers": "Pasteur|Louis Pasteur|L. Pasteur",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-virchow",
+      "prompt": "The principle that 'all cells come from pre-existing cells' is most associated with ____.",
+      "accepted_answers": "Virchow|Rudolf Virchow|R. Virchow",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-instrument",
+      "prompt": "Hooke could see the boxes in cork but nothing moving inside them, because his compound microscope reached only about thirty times. The instrument decides what a scientist is able to ____.",
+      "accepted_answers": "claim|see|observe",
+      "case_sensitive": false
+    }
+  ],
+  "ai_critique": {
+    "flawed_text": "Cell theory was worked out in 1755, when Robert Hooke put a slice of cork under the first microscope ever built and saw the cells inside it moving. Hooke concluded that living things are built from cells, and that new cells form on their own out of non-living material whenever the conditions are warm and wet enough. Antonie van Leeuwenhoek confirmed the idea a few years later by borrowing Hooke's microscope to look at pond water, where he found what he called animalcules. Louis Pasteur settled the last question in 1859: sterile broth in a swan-neck flask stayed sterile for months with air reaching it the whole time.",
+    "errors": [
+      {
+        "error_id": "E1",
+        "marker": "in 1755, when Robert Hooke put a slice of cork under the first microscope ever built and saw the cells inside it moving",
+        "kind": "fact",
+        "correct_explanation": "Two facts are wrong and your Block 1 table has both. Hooke published in 1665, ninety years earlier. And what he saw in cork was empty boxes, the dead cell walls of a tree, with nothing moving in them. That is exactly why he could name them and still not know cells were alive."
+      },
+      {
+        "error_id": "E2",
+        "marker": "new cells form on their own out of non-living material whenever the conditions are warm and wet enough",
+        "kind": "concept",
+        "correct_explanation": "This is the opposite of principle 3. All cells come from pre-existing cells. It is also the claim Pasteur's swan-neck flask was built to test, and the flask says no: sterile broth left open to the air stayed sterile, so the broth was not making anything."
+      },
+      {
+        "error_id": "E3",
+        "marker": "by borrowing Hooke's microscope",
+        "kind": "subtle",
+        "correct_explanation": "This one sounds harmless and it removes the whole point. Leeuwenhoek ground his own single lenses, which reached about x240 against Hooke's x30. If he had used Hooke's instrument he would have seen what Hooke saw, which is nothing moving. The evidence for principle 1 depended on a better lens, not on a better idea."
+      }
+    ]
+  }
+}`);
+
+function seedSection1Sheet() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  buildTabSpecs(SEED_SNAPSHOT).forEach(function (spec) { writeTab(ss, spec); });
+  removeDefaultSheet(ss);
+  SpreadsheetApp.flush();
+}
+
+function buildTabSpecs(s) {
+  return [
+    { name: 'meta', headers: ['key', 'value'],
+      rows: Object.keys(s.meta).map(function (k) { return [k, s.meta[k]]; }) },
+    { name: 'mcq', headers: ["id", "prompt", "option_a", "option_b", "option_c", "option_d", "correct", "explanation"],
+      rows: pickRows(s.mcq, ["id", "prompt", "option_a", "option_b", "option_c", "option_d", "correct", "explanation"]) },
+    { name: 'fill_blank', headers: ["id", "prompt", "accepted_answers", "case_sensitive"],
+      rows: pickRows(s.fill_blank, ["id", "prompt", "accepted_answers", "case_sensitive"]) },
+    { name: 'ai_critique_text', headers: ['flawed_text'],
+      rows: [[s.ai_critique.flawed_text]] },
+    { name: 'ai_critique_errors',
+      headers: ['error_id', 'marker', 'kind', 'correct_explanation'],
+      rows: pickRows(s.ai_critique.errors,
+        ['error_id', 'marker', 'kind', 'correct_explanation']) }
+  ];
+}
+
+function pickRows(list, fields) {
+  return list.map(function (item) { return fields.map(function (f) { return item[f]; }); });
+}
+
+function writeTab(ss, spec) {
+  let sheet = ss.getSheetByName(spec.name);
+  if (sheet) sheet.clear();
+  else sheet = ss.insertSheet(spec.name);
+  const all = [spec.headers].concat(spec.rows);
+  sheet.getRange(1, 1, all.length, spec.headers.length).setValues(all);
+  sheet.setFrozenRows(1);
+  sheet.autoResizeColumns(1, spec.headers.length);
+}
+
+function removeDefaultSheet(ss) {
+  const sheet1 = ss.getSheetByName('Sheet1');
+  if (sheet1 && ss.getSheets().length > 1) ss.deleteSheet(sheet1);
+}

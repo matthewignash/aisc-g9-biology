@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cell Theory and Evidence · G9 Biology</title>
+<style>
+:root {
+  --c-teal-deep: #0F3D3E;
+  --c-sage: #7FB069;
+  --c-coral: #F2A65A;
+  --c-bg: #FAFAF7;
+  --c-text: #1A2B2C;
+  --c-muted: #5E6F70;
+  --c-rule: #D9D7CE;
+  --c-error: #B23A48;
+  --c-coral-soft: #FBE3CC;
+  --c-sage-soft: #DCEED0;
+  --c-teal-soft: #D6E5E5;
+  --font-serif: Georgia, "Charter", "Iowan Old Style", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-h1: 2.25rem;
+  --fs-h2: 1.625rem;
+  --fs-h3: 1.25rem;
+  --lh-body: 1.6;
+  --lh-tight: 1.25;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --content-width: 720px;
+  --shell-width: 1080px;
+}
+@media (max-width: 768px) {
+  :root { --fs-body: 16px; --fs-h1: 1.875rem; --fs-h2: 1.375rem; --fs-h3: 1.125rem; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--c-teal-deep);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--s-4) 0;
+  font-weight: 600;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); margin-top: var(--s-7); }
+h3 { font-size: var(--fs-h3); margin-top: var(--s-5); }
+p { margin: 0 0 var(--s-4) 0; }
+a { color: var(--c-teal-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--c-coral); }
+:focus-visible { outline: 2px solid var(--c-coral); outline-offset: 2px; border-radius: 3px; }
+button { font-family: inherit; font-size: inherit; cursor: pointer; }
+input, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+.shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--s-7);
+  max-width: var(--shell-width);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-5);
+}
+.shell__main { max-width: var(--content-width); min-width: 0; }
+.shell__main > section { margin-bottom: var(--s-8); scroll-margin-top: var(--s-5); }
+@media (max-width: 1023px) {
+  .shell { grid-template-columns: 1fr; gap: var(--s-5); padding: var(--s-4); }
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.toc { position: sticky; top: var(--s-5); align-self: start; border-left: 2px solid var(--c-rule); padding-left: var(--s-4); font-size: var(--fs-small); }
+.toc__label { text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: var(--s-3); }
+.toc ol { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--s-2); }
+.toc a { text-decoration: none; color: var(--c-muted); display: block; padding: var(--s-1) 0; }
+.toc a:hover { color: var(--c-teal-deep); }
+.toc a[aria-current="true"] { color: var(--c-teal-deep); font-weight: 600; }
+@media (max-width: 1023px) {
+  .toc { position: relative; top: 0; border-left: none; border-bottom: 1px solid var(--c-rule); padding: 0 0 var(--s-4) 0; }
+  .toc ol { flex-direction: row; flex-wrap: wrap; gap: var(--s-4); }
+}
+.section-marker {
+  display: inline-block; font-family: var(--font-serif); font-size: var(--fs-small);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-coral); margin-bottom: var(--s-2);
+}
+.phenomenon { background: var(--c-teal-soft); border-radius: var(--radius-lg); padding: var(--s-5); }
+.phenomenon__scene { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.55; color: var(--c-teal-deep); }
+.phenomenon__prompt { font-weight: 600; margin-top: var(--s-4); }
+.video-placeholder, .img-placeholder {
+  background: repeating-linear-gradient(45deg, var(--c-rule), var(--c-rule) 8px, var(--c-bg) 8px, var(--c-bg) 16px);
+  border: 1px dashed var(--c-muted); color: var(--c-muted); padding: var(--s-6) var(--s-4);
+  text-align: center; border-radius: var(--radius); font-size: var(--fs-small); font-style: italic;
+}
+.btn {
+  display: inline-block; background: var(--c-coral); color: #fff; border: none;
+  border-radius: var(--radius); padding: var(--s-3) var(--s-5); font-weight: 600; text-decoration: none;
+}
+.btn:hover { background: #E89042; color: #fff; }
+.btn--secondary { background: transparent; color: var(--c-teal-deep); border: 1.5px solid var(--c-teal-deep); }
+.btn--secondary:hover { background: var(--c-teal-soft); color: var(--c-teal-deep); }
+.input, .textarea {
+  width: 100%; border: 1.5px solid var(--c-rule); background: #fff;
+  border-radius: var(--radius); padding: var(--s-3);
+}
+.textarea { min-height: 120px; resize: vertical; }
+.input:focus, .textarea:focus { border-color: var(--c-teal-deep); outline: 2px solid var(--c-coral); outline-offset: 0; }
+.practice { border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: var(--s-5); background: #fff; margin-bottom: var(--s-5); }
+.practice__label { font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: var(--s-2); }
+.practice__prompt { font-weight: 600; margin-bottom: var(--s-4); }
+.mcq-option {
+  display: block; width: 100%; text-align: left; background: var(--c-bg);
+  border: 1.5px solid var(--c-rule); border-radius: var(--radius);
+  padding: var(--s-3) var(--s-4); margin-bottom: var(--s-2);
+}
+.mcq-option:hover { border-color: var(--c-teal-deep); }
+.mcq-option[aria-pressed="true"] { border-color: var(--c-teal-deep); background: var(--c-teal-soft); }
+.mcq-option.is-correct { border-color: var(--c-sage); background: var(--c-sage-soft); }
+.mcq-option.is-incorrect { border-color: var(--c-error); background: #F5DDE0; }
+.mcq-option:disabled { cursor: default; }
+.mcq-feedback { margin-top: var(--s-3); font-size: var(--fs-small); color: var(--c-muted); }
+.mcq-feedback.is-correct { color: var(--c-teal-deep); }
+.mcq-feedback.is-incorrect { color: var(--c-error); }
+.fill-row { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
+.fill-row .input { flex: 1 1 200px; }
+.fill-feedback { margin-top: var(--s-2); font-size: var(--fs-small); }
+.fill-feedback.is-correct { color: var(--c-teal-deep); }
+.fill-feedback.is-incorrect { color: var(--c-error); }
+.drag-zone {
+  display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3);
+  background: var(--c-bg); border: 1.5px dashed var(--c-rule); border-radius: var(--radius); min-height: 60px;
+}
+.drag-card {
+  background: #fff; border: 1.5px solid var(--c-rule); border-radius: var(--radius);
+  padding: var(--s-3) var(--s-4); cursor: grab; user-select: none; touch-action: none;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+.drag-card:active { cursor: grabbing; }
+.drag-card.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 10px 24px rgba(15, 61, 62, 0.18);
+  border-color: var(--c-teal-deep);
+  transform: scale(1.02);
+  transition: none;
+}
+.drag-card.is-misplaced { border-color: var(--c-error); background: #F5DDE0; }
+.drag-card.is-correct { border-color: var(--c-sage); background: var(--c-sage-soft); }
+.drag-placeholder {
+  background: var(--c-coral-soft);
+  border: 1.5px dashed var(--c-coral);
+  border-radius: var(--radius);
+  transition: height 120ms ease;
+}
+.drag-handle { display: inline-block; margin-right: var(--s-3); color: var(--c-muted); letter-spacing: 2px; user-select: none; }
+.ai-block { background: #F1F4F4; border-left: 4px solid var(--c-muted); border-radius: var(--radius); padding: var(--s-4); margin-bottom: var(--s-4); line-height: 1.65; }
+.ai-block__source { font-size: var(--fs-small); color: var(--c-muted); margin-bottom: var(--s-2); text-transform: uppercase; letter-spacing: 0.08em; }
+.ai-error-marker { background: transparent; border-bottom: 2px dotted var(--c-muted); padding: 0 1px; cursor: pointer; }
+.ai-error-marker:hover { background: var(--c-coral-soft); }
+.ai-error-marker.is-selected { background: var(--c-coral-soft); border-bottom-color: var(--c-coral); }
+.ai-error-marker.is-revealed-correct { background: var(--c-sage-soft); border-bottom: 2px solid var(--c-sage); }
+.ai-error-marker.is-revealed-missed { background: #F5DDE0; border-bottom: 2px solid var(--c-error); }
+.ai-error-list { margin-top: var(--s-4); padding-left: 0; list-style: none; }
+.ai-error-list li { border-top: 1px solid var(--c-rule); padding: var(--s-3) 0; }
+.levels { background: #fff; border: 1px solid var(--c-rule); border-radius: var(--radius-lg); padding: var(--s-5); }
+.levels__toggle { display: inline-flex; background: var(--c-bg); border-radius: var(--radius); border: 1px solid var(--c-rule); overflow: hidden; margin-bottom: var(--s-4); }
+.levels__toggle button { border: none; background: transparent; padding: var(--s-2) var(--s-4); color: var(--c-muted); }
+.levels__toggle button[aria-pressed="true"] { background: var(--c-teal-deep); color: #fff; }
+.levels__stage { display: flex; gap: var(--s-5); align-items: center; flex-wrap: wrap; }
+.levels__figure { flex: 0 0 200px; height: 200px; background: var(--c-bg); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+.levels__figure svg { width: 80%; height: 80%; }
+.levels__body { flex: 1 1 240px; min-width: 0; }
+.levels__index { font-family: var(--font-serif); color: var(--c-coral); font-size: var(--fs-small); letter-spacing: 0.08em; text-transform: uppercase; }
+.levels__name { font-size: var(--fs-h3); color: var(--c-teal-deep); margin: var(--s-1) 0 var(--s-2) 0; }
+.levels__label { font-style: italic; color: var(--c-muted); margin-bottom: var(--s-3); }
+.levels__controls { display: flex; gap: var(--s-3); margin-top: var(--s-4); }
+.levels__controls button[disabled] { opacity: 0.4; cursor: not-allowed; }
+.revisit__prior { background: var(--c-sage-soft); border-radius: var(--radius); padding: var(--s-4); margin-bottom: var(--s-4); font-style: italic; }
+.revisit__prior strong { font-style: normal; color: var(--c-teal-deep); }
+.timeline { margin: var(--s-5) 0; padding: var(--s-4) 0; }
+.timeline svg { width: 100%; height: auto; display: block; }
+.timeline figcaption { font-size: var(--fs-small); color: var(--c-muted); text-align: center; margin-top: var(--s-2); font-style: italic; }
+.callout { border-left: 4px solid var(--c-coral); background: var(--c-coral-soft); padding: var(--s-3) var(--s-4); border-radius: var(--radius); margin: var(--s-4) 0; }
+.callout--idli { border-left-color: var(--c-sage); background: var(--c-sage-soft); }
+.callout__label { font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-teal-deep); font-weight: 600; margin-bottom: var(--s-1); }
+.reset-row { margin-top: var(--s-8); padding-top: var(--s-4); border-top: 1px solid var(--c-rule); font-size: var(--fs-small); color: var(--c-muted); text-align: center; }
+.reset-row button { background: none; border: none; color: var(--c-muted); text-decoration: underline; padding: 0; }
+.saved-indicator { display: inline-block; margin-left: var(--s-3); font-size: var(--fs-small); color: var(--c-sage); opacity: 0; transition: opacity 0.2s ease-in-out; }
+.saved-indicator.is-visible { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="toc" aria-label="Section navigation">
+    <p class="toc__label">On this page</p>
+    <ol>
+      <li><a href="#sec-a">A. The phenomenon</a></li>
+      <li><a href="#sec-b">B. The scientists</a></li>
+      <li><a href="#sec-d">D. Practice</a></li>
+      <li><a href="#sec-e">E. AI critique</a></li>
+      <li><a href="#sec-f">F. Revisit</a></li>
+    </ol>
+  </nav>
+
+  <main class="shell__main">
+    <header>
+      <h1 id="section-title">Cell Theory and Evidence</h1>
+      <p style="color: var(--c-muted); font-size: var(--fs-small);">G9 Biology · Unit 3 Cell Structure · AISC</p>
+    </header>
+
+    <section id="sec-a" aria-labelledby="sec-a-h">
+      <span class="section-marker">A · Phenomenon</span>
+      <h2 id="sec-a-h">A bowl of batter on the counter</h2>
+      <div class="phenomenon">
+        <p id="phenomenon-scene" class="phenomenon__scene">A bowl of idli batter is mixed in the afternoon and left on the counter overnight. By morning it has nearly doubled in volume and it tastes slightly sour. Nothing was added to it. Something in that bowl did the work.</p>
+        <div class="video-placeholder" role="img" aria-label="Placeholder for a time-lapse video of idli batter rising over eight hours.">
+          [VIDEO: short looping clip of batter rising over 8 hours]
+        </div>
+        <!-- TODO: replace with real video -->
+        <p class="phenomenon__prompt" id="phenomenon-prompt">Is the batter alive? If something in it is alive, what?</p>
+        <label for="initial-answer" class="sr-only">Your initial answer</label>
+        <textarea id="initial-answer" class="textarea" placeholder="Two or three sentences. Don't look anything up. You come back to this at the end of the page, and again at Block 11."></textarea>
+        <span id="initial-saved" class="saved-indicator">Saved</span>
+      </div>
+    </section>
+
+    <section id="sec-b" aria-labelledby="sec-b-h">
+      <span class="section-marker">B · Reading</span>
+      <h2 id="sec-b-h">Where cell theory came from</h2>
+      <p>Cells were not always obvious. For most of human history, nobody had any reason to think a body was built out of microscopic units. The idea of a cell needed a tool that did not exist until the 1600s. So the story of cell theory is partly a story of lenses: each step happened when an instrument got good enough to show something new, and the claim could never run ahead of what the instrument could show.</p>
+
+      <p>Fill your evidence table as you read. Four columns: scientist, year, what they saw, what it proved.</p>
+
+      <figure class="timeline">
+        <svg viewBox="0 0 720 220" role="img" aria-labelledby="timeline-title timeline-desc" preserveAspectRatio="xMidYMid meet">
+          <title id="timeline-title">Cell theory timeline, 1665 to 1859</title>
+          <desc id="timeline-desc">A horizontal timeline showing six milestones: Hooke names cells from cork in 1665, Leeuwenhoek sees living animalcules in the 1670s, Schleiden generalizes to plants in 1838, Schwann extends to animals in 1839, Virchow shows cells come from cells in 1855, and Pasteur's swan-neck flask closes off spontaneous generation in 1859.</desc>
+          <line x1="40" y1="120" x2="680" y2="120" stroke="#0F3D3E" stroke-width="2"/>
+          <g>
+            <line x1="40" y1="115" x2="40" y2="125" stroke="#0F3D3E" stroke-width="2"/>
+            <line x1="680" y1="115" x2="680" y2="125" stroke="#0F3D3E" stroke-width="2"/>
+          </g>
+          <g font-family="Georgia, serif" fill="#5E6F70" font-size="11">
+            <text x="40" y="148" text-anchor="middle">1600</text>
+            <text x="680" y="148" text-anchor="middle">1900</text>
+          </g>
+          <g>
+            <circle cx="72" cy="120" r="9" fill="#F2A65A" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="72" y1="111" x2="72" y2="80" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="72" y="74" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Hooke</text>
+            <text x="72" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1665</text>
+            <text x="72" y="180" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">Cork →</text>
+            <text x="72" y="194" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">names "cells"</text>
+          </g>
+          <g>
+            <circle cx="146" cy="120" r="9" fill="#F2A65A" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="146" y1="129" x2="146" y2="160" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="146" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Leeuwenhoek</text>
+            <text x="146" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1670s</text>
+            <text x="146" y="80" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">First living</text>
+            <text x="146" y="66" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">"animalcules"</text>
+          </g>
+          <g>
+            <circle cx="468" cy="120" r="9" fill="#7FB069" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="468" y1="111" x2="468" y2="80" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="468" y="74" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Schleiden</text>
+            <text x="468" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1838</text>
+            <text x="468" y="180" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">All plants</text>
+            <text x="468" y="194" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">are cells</text>
+          </g>
+          <g>
+            <circle cx="492" cy="120" r="9" fill="#7FB069" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="492" y1="129" x2="492" y2="160" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="492" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Schwann</text>
+            <text x="492" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1839</text>
+            <text x="492" y="80" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">All animals</text>
+            <text x="492" y="66" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">are cells too</text>
+          </g>
+          <g>
+            <circle cx="546" cy="120" r="9" fill="#0F3D3E" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="546" y1="111" x2="546" y2="80" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="546" y="74" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Virchow</text>
+            <text x="546" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1855</text>
+            <text x="546" y="180" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">Cells come</text>
+            <text x="546" y="194" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">from cells</text>
+          </g>
+          <g>
+            <circle cx="600" cy="120" r="9" fill="#0F3D3E" stroke="#0F3D3E" stroke-width="1.8"/>
+            <line x1="600" y1="129" x2="600" y2="160" stroke="#0F3D3E" stroke-width="1"/>
+            <text x="600" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#0F3D3E" font-weight="600">Pasteur</text>
+            <text x="600" y="194" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#5E6F70">1859</text>
+            <text x="600" y="80" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">Swan-neck flask,</text>
+            <text x="600" y="66" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#1A2B2C">no life from nothing</text>
+          </g>
+          <path d="M 60 105 Q 100 95 132 105" fill="none" stroke="#F2A65A" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.7"/>
+          <path d="M 478 105 Q 510 95 536 105" fill="none" stroke="#0F3D3E" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.6"/>
+        </svg>
+        <figcaption>Cell theory took nearly two hundred years to assemble. Each milestone needed a better tool, or a willingness to argue with the last one.</figcaption>
+      </figure>
+
+      <p><strong>Robert Hooke, 1665.</strong> An English scientist at the Royal Society, Hooke built a compound microscope, two lenses one above the other, and used it on thin slices of cork. What he saw was rows of empty rectangular boxes, like the small rooms in a monastery. He called them <em>cells</em>, from the Latin <em>cellae</em>. He was not looking at living material at all. He was looking at the dead cell walls of a tree, and his instrument reached about thirty times, so nothing inside them could have moved for him. The name stuck anyway.</p>
+
+      <p><strong>Antonie van Leeuwenhoek, 1670s onward.</strong> A Dutch draper with no scientific training, Leeuwenhoek ground his own lenses, one lens per instrument, each about the size of a thumb. They magnified up to about two hundred and forty times, far past anything Hooke had. With them he became the first person to see living single-celled organisms. He called them <em>animalcules</em>, little animals, and wrote to the Royal Society about them. Pond water was full of them. So was the plaque he scraped off his own teeth. This is the step that turned a cell from a shape into something that could be alive, and it happened because of a lens.</p>
+
+      <p><strong>Schleiden and Schwann, 1838 to 1839.</strong> Almost two centuries after Hooke, two German scientists made the jump from "cells exist" to "cells are everywhere." Matthias Schleiden, working on plants, concluded in 1838 that all plant tissue is made of cells. The next year Theodor Schwann said the same of animals. Neither could have claimed <em>all living things</em> on his own, which is why the two names are always said together. Between them they had the first two principles: living things are made of cells, and the cell is the basic unit of structure and function. They were wrong about one thing. They thought new cells might form out of a kind of shapeless "cell-forming substance," which is spontaneous generation wearing a lab coat.</p>
+
+      <p><strong>Rudolf Virchow, 1855.</strong> A German physician who watched cells divide, and who pulled the observations of several people together into the third principle: <em>omnis cellula e cellula</em>, every cell from a cell. Cells do not appear. They reproduce.</p>
+
+      <p><strong>Louis Pasteur, 1859.</strong> You already know this one from Unit 1. Pasteur boiled broth in a flask whose neck he drew out into a long S-bend. Air could reach the broth the whole time; dust could not, because it settled in the bend. The broth stayed clear for months. Tip the flask so the broth washes into the bend and back, and it clouds within days. The dust was carrying the cells. Virchow had said cells come from cells; Pasteur is the experiment that made the alternative impossible to keep believing.</p>
+
+      <div class="callout">
+        <p class="callout__label">Modern cell theory</p>
+        <ol style="margin:0; padding-left: var(--s-4)">
+          <li>All living things are made of one or more cells.</li>
+          <li>The cell is the basic unit of structure and function in living things.</li>
+          <li>All cells come from pre-existing cells.</li>
+        </ol>
+      </div>
+
+      <p>Every one of those three is a claim somebody had to see evidence for, which is why Checkpoint 1 asks you for the scientist <em>and</em> the instrument, not just the name.</p>
+
+      <div class="callout callout--idli">
+        <p class="callout__label">Batter check</p>
+        <p style="margin:0">Apply the third principle to the bowl on the counter. The yeasts and bacteria that multiplied overnight did not come from nothing. They were already on the rice, the dal, the bowl, the air. Their parents were yeasts and bacteria, and so were theirs. The chain runs back unbroken to the first cells on Earth.</p>
+      </div>
+    </section>
+
+    <section id="sec-d" aria-labelledby="sec-d-h">
+      <span class="section-marker">D · Practice</span>
+      <h2 id="sec-d-h">Practice</h2>
+      <p>Both blocks mark themselves and record nothing, so go round as many times as you like. Nothing here is submitted anywhere.</p>
+
+      <h3>D1. Multiple choice</h3>
+      <div id="mcq-list"></div>
+
+      <h3>D2. Fill in the blank</h3>
+      <div id="fill-list"></div>
+    </section>
+
+    <section id="sec-e" aria-labelledby="sec-e-h">
+      <span class="section-marker">E · AI critique</span>
+      <h2 id="sec-e-h">An AI got this wrong</h2>
+      <p>Below is what an AI tool answered when it was asked, <em>"What is cell theory and who discovered it?"</em> Three things in it are wrong: one is a fact, one is a concept, and one is subtle. Find them with your evidence table, not by guessing. Click the parts you think are wrong, write the correction and the evidence, then press "Reveal answers."</p>
+      <div class="ai-block">
+        <p class="ai-block__source">AI assistant · response</p>
+        <p id="ai-passage"></p>
+      </div>
+      <div>
+        <ul id="ai-explanations" class="ai-error-list"></ul>
+      </div>
+      <div style="display:flex; gap: var(--s-3); margin-top: var(--s-4); flex-wrap: wrap;">
+        <button type="button" id="ai-reveal" class="btn">Reveal answers</button>
+      </div>
+      <ul id="ai-reveal-list" class="ai-error-list"></ul>
+    </section>
+
+    <section id="sec-f" aria-labelledby="sec-f-h">
+      <span class="section-marker">F · Revisit</span>
+      <h2 id="sec-f-h">Would you change your answer?</h2>
+      <div id="revisit-recall" class="revisit__prior"></div>
+      <p id="revisit-prompt"></p>
+      <label class="sr-only" for="revisit-answer">Your revised answer</label>
+      <textarea id="revisit-answer" class="textarea" placeholder="What changed your mind? Or what would have to happen before it did?"></textarea>
+      <span id="revisit-saved" class="saved-indicator">Saved</span>
+    </section>
+
+    <div class="reset-row">
+      <button type="button" id="reset-section">Reset this page (erase my saved answers)</button>
+    </div>
+  </main>
+</div>
+
+<script>
+window.__CONTENT__ = <?!= contentJson ?>;
+</script>
+
+<script>
+// Shared: storage.js
+(function () {
+  const content = window.__CONTENT__ || {};
+  const meta = content.meta || {};
+  const unit = meta.unit_id || "x";
+  const section = meta.section_id || "x";
+  const prefix = "g9bio.u" + unit + ".s" + section + ".";
+  function key(field) { return prefix + field; }
+  function isAvailable() {
+    try { localStorage.setItem("__probe__", "1"); localStorage.removeItem("__probe__"); return true; }
+    catch (_) { return false; }
+  }
+  const fallback = new Map();
+  const available = isAvailable();
+  function read(field) {
+    if (!available) return fallback.get(field) ?? null;
+    return localStorage.getItem(key(field));
+  }
+  function write(field, value) {
+    if (!available) { fallback.set(field, String(value)); return; }
+    localStorage.setItem(key(field), String(value));
+  }
+  function remove(field) {
+    if (!available) { fallback.delete(field); return; }
+    localStorage.removeItem(key(field));
+  }
+  function clearAll() {
+    if (!available) { fallback.clear(); return; }
+    const toRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.indexOf(prefix) === 0) toRemove.push(k);
+    }
+    toRemove.forEach((k) => localStorage.removeItem(k));
+  }
+  window.G9Storage = { read, write, remove, clearAll, prefix, isAvailable: available };
+})();
+</script>
+
+<script>
+// Shared: section-shell.js
+(function () {
+  const store = window.G9Storage;
+  const content = window.__CONTENT__ || {};
+  const meta = content.meta || {};
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.from((r || document).querySelectorAll(s)); }
+  function pulse(indicator) {
+    if (!indicator) return;
+    indicator.classList.add("is-visible");
+    setTimeout(() => indicator.classList.remove("is-visible"), 1200);
+  }
+  function wireToc() {
+    const links = $$(".toc a[href^='#']");
+    if (!links.length) return;
+    const targets = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach((a) => {
+          a.setAttribute("aria-current", a.getAttribute("href") === "#" + id ? "true" : "false");
+        });
+      });
+    }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
+    targets.forEach((t) => observer.observe(t));
+  }
+  function debounce(fn, ms) {
+    let timer = null;
+    return function () { clearTimeout(timer); timer = setTimeout(fn, ms); };
+  }
+  function wireTextarea(textareaEl, savedEl, fieldKey) {
+    if (!textareaEl) return;
+    const prior = store.read(fieldKey);
+    if (prior) textareaEl.value = prior;
+    const save = debounce(() => { store.write(fieldKey, textareaEl.value); pulse(savedEl); }, 400);
+    textareaEl.addEventListener("input", save);
+  }
+  function wirePhenomenon() {
+    const promptEl = $("#phenomenon-prompt");
+    if (promptEl && meta.opening_question) promptEl.textContent = meta.opening_question;
+    wireTextarea($("#initial-answer"), $("#initial-saved"), "is-alive-initial");
+  }
+  function setRecall(recallEl, prior) {
+    recallEl.textContent = "";
+    if (!prior) {
+      const em = document.createElement("em");
+      em.textContent = "You didn't write an initial answer. Scroll back up to add one.";
+      recallEl.appendChild(em);
+      return;
+    }
+    const label = document.createElement("strong");
+    label.textContent = "What you said earlier: ";
+    recallEl.appendChild(label);
+    recallEl.appendChild(document.createTextNode(prior));
+  }
+  function wireRevisit() {
+    const recallEl = $("#revisit-recall");
+    const promptEl = $("#revisit-prompt");
+    if (promptEl && meta.revisit_prompt) promptEl.textContent = meta.revisit_prompt;
+    if (recallEl) setRecall(recallEl, store.read("is-alive-initial"));
+    wireTextarea($("#revisit-answer"), $("#revisit-saved"), "is-alive-revisit");
+  }
+  function wireReset() {
+    const btn = $("#reset-section");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const ok = window.confirm("Erase all your saved answers on this page? You can't undo this.");
+      if (!ok) return;
+      store.clearAll();
+      window.location.reload();
+    });
+  }
+  function applyMeta() {
+    const title = $("#section-title");
+    if (title && meta.section_title) title.textContent = meta.section_title;
+    const scene = $("#phenomenon-scene");
+    if (scene && meta.phenomenon_prompt) scene.textContent = meta.phenomenon_prompt;
+  }
+  function init() { applyMeta(); wireToc(); wirePhenomenon(); wireRevisit(); wireReset(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+  window.G9Shell = { pulse };
+})();
+</script>
+
+<script>
+// Shared: practice-mcq.js
+(function () {
+  const store = window.G9Storage;
+  const items = (window.__CONTENT__ && window.__CONTENT__.mcq) || [];
+  function makeOption(letter, text, item) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "mcq-option";
+    button.setAttribute("data-letter", letter);
+    button.setAttribute("aria-pressed", "false");
+    const label = document.createElement("span");
+    label.style.fontWeight = "600";
+    label.style.marginRight = "8px";
+    label.textContent = letter.toUpperCase() + ".";
+    button.appendChild(label);
+    button.appendChild(document.createTextNode(text));
+    button.addEventListener("click", () => selectOption(item, letter, button));
+    return button;
+  }
+  function disableAll(card) { Array.from(card.querySelectorAll(".mcq-option")).forEach((b) => { b.disabled = true; }); }
+  function revealCorrect(card, item) {
+    Array.from(card.querySelectorAll(".mcq-option")).forEach((b) => {
+      if (b.getAttribute("data-letter") === item.correct) b.classList.add("is-correct");
+    });
+  }
+  function showFeedback(card, item, picked) {
+    const fb = card.querySelector(".mcq-feedback");
+    const right = picked === item.correct;
+    fb.textContent = (right ? "Correct. " : "Not quite. ") + (item.explanation || "");
+    fb.classList.remove("is-correct", "is-incorrect");
+    fb.classList.add(right ? "is-correct" : "is-incorrect");
+  }
+  function selectOption(item, letter, button) {
+    const card = button.closest(".practice");
+    if (!card || card.dataset.answered === "true") return;
+    card.dataset.answered = "true";
+    button.setAttribute("aria-pressed", "true");
+    const right = letter === item.correct;
+    button.classList.add(right ? "is-correct" : "is-incorrect");
+    revealCorrect(card, item);
+    showFeedback(card, item, letter);
+    disableAll(card);
+    store.write("mcq." + item.id, letter);
+  }
+  function renderItem(item) {
+    const card = document.createElement("div");
+    card.className = "practice";
+    card.id = item.id;
+    card.setAttribute("role", "group");
+    card.setAttribute("aria-label", "Multiple choice question");
+    const label = document.createElement("p");
+    label.className = "practice__label";
+    label.textContent = "Multiple choice";
+    const prompt = document.createElement("p");
+    prompt.className = "practice__prompt";
+    prompt.textContent = item.prompt;
+    card.appendChild(label);
+    card.appendChild(prompt);
+    ["a", "b", "c", "d"].forEach((letter) => {
+      const text = item["option_" + letter];
+      if (text) card.appendChild(makeOption(letter, text, item));
+    });
+    const fb = document.createElement("p");
+    fb.className = "mcq-feedback";
+    card.appendChild(fb);
+    return card;
+  }
+  function restoreAnswer(card, item) {
+    const prior = store.read("mcq." + item.id);
+    if (!prior) return;
+    const btn = card.querySelector('.mcq-option[data-letter="' + prior + '"]');
+    if (btn) selectOption(item, prior, btn);
+  }
+  function mount() {
+    const host = document.getElementById("mcq-list");
+    if (!host) return;
+    items.forEach((item) => { const card = renderItem(item); host.appendChild(card); restoreAnswer(card, item); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: practice-fill.js
+(function () {
+  const store = window.G9Storage;
+  const items = (window.__CONTENT__ && window.__CONTENT__.fill_blank) || [];
+  function normalize(value, caseSensitive) {
+    const trimmed = String(value || "").trim();
+    return caseSensitive ? trimmed : trimmed.toLowerCase();
+  }
+  function isAccepted(value, item) {
+    const accepted = String(item.accepted_answers || "").split("|");
+    const target = normalize(value, item.case_sensitive);
+    return accepted.some((a) => normalize(a, item.case_sensitive) === target && target.length > 0);
+  }
+  function splitPrompt(prompt) { return String(prompt || "").split("____"); }
+  function makePromptFragment(prompt, input) {
+    const fragment = document.createDocumentFragment();
+    const parts = splitPrompt(prompt);
+    parts.forEach((part, i) => {
+      fragment.appendChild(document.createTextNode(part));
+      if (i < parts.length - 1) fragment.appendChild(input);
+    });
+    return fragment;
+  }
+  function showFeedback(fb, ok) {
+    fb.textContent = ok ? "Correct." : "Not yet — check the spelling and try again.";
+    fb.classList.remove("is-correct", "is-incorrect");
+    fb.classList.add(ok ? "is-correct" : "is-incorrect");
+  }
+  function makeInput(item) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "input";
+    input.setAttribute("aria-label", "Answer for " + item.id);
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.style.maxWidth = "260px";
+    return input;
+  }
+  function renderItem(item) {
+    const card = document.createElement("div");
+    card.className = "practice";
+    card.id = item.id;
+    const label = document.createElement("p");
+    label.className = "practice__label";
+    label.textContent = "Fill in the blank";
+    card.appendChild(label);
+    const prompt = document.createElement("p");
+    prompt.className = "practice__prompt fill-row";
+    const input = makeInput(item);
+    prompt.appendChild(makePromptFragment(item.prompt, input));
+    card.appendChild(prompt);
+    const fb = document.createElement("p");
+    fb.className = "fill-feedback";
+    card.appendChild(fb);
+    input.addEventListener("input", () => {
+      store.write("fill." + item.id, input.value);
+      if (!input.value) { fb.textContent = ""; fb.classList.remove("is-correct", "is-incorrect"); return; }
+      showFeedback(fb, isAccepted(input.value, item));
+    });
+    const prior = store.read("fill." + item.id);
+    if (prior) { input.value = prior; showFeedback(fb, isAccepted(prior, item)); }
+    return card;
+  }
+  function mount() {
+    const host = document.getElementById("fill-list");
+    if (!host) return;
+    items.forEach((item) => host.appendChild(renderItem(item)));
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+<script>
+// Shared: ai-critique.js
+(function () {
+  const store = window.G9Storage;
+  const data = (window.__CONTENT__ && window.__CONTENT__.ai_critique) || {};
+  const flawed = data.flawed_text || "";
+  const errors = data.errors || [];
+  function findIntervals() {
+    const list = [];
+    errors.forEach((err) => {
+      const idx = flawed.indexOf(err.marker);
+      if (idx < 0) return;
+      list.push({ start: idx, end: idx + err.marker.length, error: err });
+    });
+    list.sort((a, b) => a.start - b.start);
+    return list;
+  }
+  function makeMarkerSpan(err) {
+    const span = document.createElement("span");
+    span.className = "ai-error-marker";
+    span.dataset.errorId = err.error_id;
+    span.setAttribute("role", "button");
+    span.setAttribute("tabindex", "0");
+    span.setAttribute("aria-pressed", "false");
+    span.textContent = err.marker;
+    return span;
+  }
+  function renderPassage(host) {
+    host.textContent = "";
+    const intervals = findIntervals();
+    let cursor = 0;
+    intervals.forEach((iv) => {
+      if (iv.start > cursor) host.appendChild(document.createTextNode(flawed.slice(cursor, iv.start)));
+      host.appendChild(makeMarkerSpan(iv.error));
+      cursor = iv.end;
+    });
+    if (cursor < flawed.length) host.appendChild(document.createTextNode(flawed.slice(cursor)));
+  }
+  function readSelected() {
+    const raw = store.read("ai-critique.selected");
+    return new Set(raw ? raw.split(",").filter(Boolean) : []);
+  }
+  function writeSelected(set) { store.write("ai-critique.selected", Array.from(set).join(",")); }
+  function applySelection(host, selected) {
+    Array.from(host.querySelectorAll(".ai-error-marker")).forEach((s) => {
+      const on = selected.has(s.dataset.errorId);
+      s.classList.toggle("is-selected", on);
+      s.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+  function toggleSpan(span, selected, host) {
+    const id = span.dataset.errorId;
+    if (selected.has(id)) selected.delete(id);
+    else selected.add(id);
+    writeSelected(selected);
+    applySelection(host, selected);
+  }
+  function wireMarkers(host, selected) {
+    Array.from(host.querySelectorAll(".ai-error-marker")).forEach((span) => {
+      span.addEventListener("click", () => toggleSpan(span, selected, host));
+      span.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSpan(span, selected, host); }
+      });
+    });
+  }
+  function makeExplanationField(err) {
+    const li = document.createElement("li");
+    const label = document.createElement("p");
+    label.style.fontWeight = "600";
+    label.textContent = "Error " + err.error_id + " — explain why this is wrong:";
+    const ta = document.createElement("textarea");
+    ta.className = "textarea";
+    ta.id = "ai-explain-" + err.error_id;
+    ta.placeholder = "Cite the correct information from the reading.";
+    const prior = store.read("ai-critique.explain." + err.error_id);
+    if (prior) ta.value = prior;
+    let timer = null;
+    ta.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { store.write("ai-critique.explain." + err.error_id, ta.value); }, 400);
+    });
+    li.appendChild(label);
+    li.appendChild(ta);
+    return li;
+  }
+  function wireReveal(host) {
+    const btn = document.getElementById("ai-reveal");
+    const list = document.getElementById("ai-reveal-list");
+    if (!btn || !list) return;
+    btn.addEventListener("click", () => {
+      const selected = readSelected();
+      list.textContent = "";
+      errors.forEach((err) => {
+        const span = host.querySelector('.ai-error-marker[data-error-id="' + err.error_id + '"]');
+        const found = selected.has(err.error_id);
+        if (span) span.classList.add(found ? "is-revealed-correct" : "is-revealed-missed");
+        const li = document.createElement("li");
+        const head = document.createElement("p");
+        head.style.fontWeight = "600";
+        head.textContent = (found ? "Caught: " : "Missed: ") + err.marker;
+        const body = document.createElement("p");
+        body.textContent = err.correct_explanation;
+        li.appendChild(head);
+        li.appendChild(body);
+        list.appendChild(li);
+      });
+    });
+  }
+  function mount() {
+    const host = document.getElementById("ai-passage");
+    const explanations = document.getElementById("ai-explanations");
+    if (!host) return;
+    renderPassage(host);
+    const selected = readSelected();
+    applySelection(host, selected);
+    wireMarkers(host, selected);
+    if (explanations) errors.forEach((err) => explanations.appendChild(makeExplanationField(err)));
+    wireReveal(host);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
+})();
+</script>
+
+</body>
+</html>

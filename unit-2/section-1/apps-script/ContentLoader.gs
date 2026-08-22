@@ -24,8 +24,13 @@ function readAllTabs(sheetId) {
     mcq: readRowsTab(ss, 'mcq'),
     fill_blank: readRowsTab(ss, 'fill_blank'),
     drag_order: readRowsTab(ss, 'drag_order'),
+    drag_columns: readRowsTab(ss, 'drag_columns'),
     ai_critique: readAiCritique(ss),
-    levels: readRowsTab(ss, 'levels')
+    levels: readRowsTab(ss, 'levels'),
+    cell_compare: readRowsTab(ss, 'cell_compare'),
+    organelles: readRowsTab(ss, 'organelles'),
+    cube_rows: readRowsTab(ss, 'cube_rows'),
+    class_data: readRowsTab(ss, 'class_data')
   };
 }
 

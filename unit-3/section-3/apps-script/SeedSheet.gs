@@ -1,0 +1,234 @@
+// G9 Biology · Unit 3 · Section 3 — Why Cells Stay Small. One-time Sheet seeder.
+//
+// Run `seedSection3Sheet` ONCE from the Apps Script editor after creating the empty
+// Sheet. It creates or overwrites the content tabs.
+//
+// AFTER IT WORKS: delete this file from the Apps Script project. It is not needed for
+// serving the page, and leaving it in place means a stray Run could wipe your edits.
+
+const SEED_SNAPSHOT = JSON.parse(`{
+  "meta": {
+    "unit_id": 3,
+    "section_id": 3,
+    "section_title": "Why Cells Stay Small",
+    "phenomenon_prompt": "Yesterday's batter is twice the volume it was. Put a drop of it under the microscope and the yeast cells are exactly the size they were at Lab 1. So are the bacteria. The bowl grew. The cells did not.",
+    "opening_question": "The batter doubled and its cells stayed the same size. Why not just have bigger cells?",
+    "revisit_prompt": "Now that you have worked through the page, would you change your answer? Use the words surface area, volume and ratio this time, and say which number in the table convinced you."
+  },
+  "cube_rows": [
+    {
+      "side_cm": 1,
+      "surface_area": 6,
+      "volume": 1,
+      "ratio": "6 : 1"
+    },
+    {
+      "side_cm": 2,
+      "surface_area": 24,
+      "volume": 8,
+      "ratio": "3 : 1"
+    },
+    {
+      "side_cm": 3,
+      "surface_area": 54,
+      "volume": 27,
+      "ratio": "2 : 1"
+    },
+    {
+      "side_cm": 10,
+      "surface_area": 600,
+      "volume": 1000,
+      "ratio": "0.6 : 1"
+    }
+  ],
+  "class_data": [
+    {
+      "side_cm": 0.5,
+      "minutes": 1
+    },
+    {
+      "side_cm": 1,
+      "minutes": 2
+    },
+    {
+      "side_cm": 2,
+      "minutes": 8
+    },
+    {
+      "side_cm": 3,
+      "minutes": 18
+    },
+    {
+      "side_cm": 4,
+      "minutes": 32
+    }
+  ],
+  "mcq": [
+    {
+      "id": "mcq-what-grows-faster",
+      "prompt": "A cube gets bigger. Which is true?",
+      "option_a": "Surface area and volume grow at the same rate.",
+      "option_b": "Surface area grows faster than volume.",
+      "option_c": "Volume grows faster than surface area.",
+      "option_d": "Volume stays the same while surface area grows.",
+      "correct": "c",
+      "explanation": "Surface area grows with the square of the side and volume grows with the cube of it. Double the side and the surface goes up four times while the volume goes up eight, so the volume pulls ahead and the ratio falls."
+    },
+    {
+      "id": "mcq-ratio-direction",
+      "prompt": "Which cube has the highest surface area to volume ratio?",
+      "option_a": "A cube with side 1 cm",
+      "option_b": "A cube with side 2 cm",
+      "option_c": "A cube with side 3 cm",
+      "option_d": "They all have the same ratio.",
+      "correct": "a",
+      "explanation": "6 : 1 for the 1 cm cube, 3 : 1 for the 2 cm and 2 : 1 for the 3 cm. Smaller means more surface for every unit of inside, which is the whole reason cells are small."
+    },
+    {
+      "id": "mcq-why-it-matters",
+      "prompt": "Why does a falling surface area to volume ratio cause a problem for a cell?",
+      "option_a": "The cell membrane gets thinner and tears.",
+      "option_b": "Everything comes in and goes out through the surface, but the whole volume needs feeding.",
+      "option_c": "A bigger cell has less surface area than a smaller one.",
+      "option_d": "The nucleus cannot reach the outside of the cell.",
+      "correct": "b",
+      "explanation": "The surface is the only way in or out. As the volume runs ahead of it, the middle of the cell waits longer for what it needs and sits longer in its own waste."
+    },
+    {
+      "id": "mcq-what-a-cell-does",
+      "prompt": "A cell grows until its ratio has fallen too far. What does it do?",
+      "option_a": "It stops taking in food.",
+      "option_b": "It grows a second membrane.",
+      "option_c": "It divides.",
+      "option_d": "It shrinks back to its old size.",
+      "correct": "c",
+      "explanation": "Dividing does not change how much cell there is. It changes how much surface there is. Two smaller cells have the same total volume as the one big cell and more total surface, so exchange speeds up again. That is the third principle of cell theory doing a job."
+    }
+  ],
+  "fill_blank": [
+    {
+      "id": "fill-sa-2cm",
+      "prompt": "A cube with side 2 cm. Surface area, using 6 x s x s, is ____ cm squared.",
+      "accepted_answers": "24",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-v-2cm",
+      "prompt": "The same cube. Volume, using s x s x s, is ____ cm cubed.",
+      "accepted_answers": "8",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-ratio-2cm",
+      "prompt": "So its surface area to volume ratio, written in the form n : 1, is ____.",
+      "accepted_answers": "3 : 1|3:1|3 to 1|3",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-sa-3cm",
+      "prompt": "A cube with side 3 cm. Surface area is ____ cm squared.",
+      "accepted_answers": "54",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-v-3cm",
+      "prompt": "The same cube. Volume is ____ cm cubed.",
+      "accepted_answers": "27",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-ratio-3cm",
+      "prompt": "So its surface area to volume ratio, in the form n : 1, is ____.",
+      "accepted_answers": "2 : 1|2:1|2 to 1|2",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-units-area",
+      "prompt": "Length is measured in cm and volume in cm cubed. The unit that belongs against a surface area is ____.",
+      "accepted_answers": "cm2|cm^2|cm squared|square cm|centimetres squared|centimeters squared|cm²",
+      "case_sensitive": false
+    },
+    {
+      "id": "fill-ratio-unit",
+      "prompt": "A surface area to volume ratio compares cm squared with cm cubed, so the units cancel down to almost nothing. Written as a word, the unit of a ratio is ____.",
+      "accepted_answers": "none|no unit|no units|nothing|unitless|dimensionless",
+      "case_sensitive": false
+    }
+  ],
+  "ai_critique": {
+    "flawed_text": "Cells are small for a few reasons. The main one is surface area: bigger cells have more surface area, so they can take in food faster than small cells can, and that is why large organisms are built from a few big cells rather than many small ones. As a cell grows, its volume and its surface area both increase by the same amount, so the ratio between them stays steady until the cell physically runs out of space in the tissue around it. At that point the cell divides, because there is nowhere left for it to expand into. A good model for all of this is an agar cube in acid, which behaves exactly like a cell because it takes material in through its surface and has a membrane controlling what enters.",
+    "errors": [
+      {
+        "error_id": "E1",
+        "marker": "bigger cells have more surface area, so they can take in food faster than small cells can",
+        "kind": "concept",
+        "correct_explanation": "A bigger cell does have more surface area, and that part is true, which is what makes this sentence so easy to agree with. The problem is what it is compared against. The surface has to serve the whole volume, and the volume grew faster than the surface did. Per unit of inside, a big cell has less surface than a small one, so it takes food in more slowly where it counts. Your 1 cm cube and your 3 cm cube say it: 6 : 1 against 2 : 1."
+      },
+      {
+        "error_id": "E2",
+        "marker": "its volume and its surface area both increase by the same amount, so the ratio between them stays steady",
+        "kind": "fact",
+        "correct_explanation": "They do not increase by the same amount. Surface area goes with the square of the side and volume with the cube of it. Double the side and the surface is four times bigger while the volume is eight times bigger. The ratio does not stay steady, it falls, and that fall is the entire point."
+      },
+      {
+        "error_id": "E3",
+        "marker": "the cell divides, because there is nowhere left for it to expand into",
+        "kind": "concept",
+        "correct_explanation": "Running out of room is not the reason. A single yeast cell alone in a bowl of batter has all the room it could want and it still divides. It divides because its surface area to volume ratio has fallen far enough that exchange across the surface can no longer keep up with the volume. Dividing restores the ratio."
+      },
+      {
+        "error_id": "E4",
+        "marker": "behaves exactly like a cell because it takes material in through its surface and has a membrane controlling what enters",
+        "kind": "subtle",
+        "correct_explanation": "The first half is right and the second half is not. An agar cube does take material in through its surface, which is the one thing the model is for. But it has no membrane, nothing about it is selective, it is not alive, and the acid is not food. Saying a model behaves exactly like the real thing is where models start to mislead."
+      }
+    ]
+  }
+}`);
+
+function seedSection3Sheet() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  buildTabSpecs(SEED_SNAPSHOT).forEach(function (spec) { writeTab(ss, spec); });
+  removeDefaultSheet(ss);
+  SpreadsheetApp.flush();
+}
+
+function buildTabSpecs(s) {
+  return [
+    { name: 'meta', headers: ['key', 'value'],
+      rows: Object.keys(s.meta).map(function (k) { return [k, s.meta[k]]; }) },
+    { name: 'mcq', headers: ["id", "prompt", "option_a", "option_b", "option_c", "option_d", "correct", "explanation"],
+      rows: pickRows(s.mcq, ["id", "prompt", "option_a", "option_b", "option_c", "option_d", "correct", "explanation"]) },
+    { name: 'fill_blank', headers: ["id", "prompt", "accepted_answers", "case_sensitive"],
+      rows: pickRows(s.fill_blank, ["id", "prompt", "accepted_answers", "case_sensitive"]) },
+    { name: 'cube_rows', headers: ["side_cm", "surface_area", "volume", "ratio"],
+      rows: pickRows(s.cube_rows, ["side_cm", "surface_area", "volume", "ratio"]) },
+    { name: 'class_data', headers: ["side_cm", "minutes"],
+      rows: pickRows(s.class_data, ["side_cm", "minutes"]) },
+    { name: 'ai_critique_text', headers: ['flawed_text'],
+      rows: [[s.ai_critique.flawed_text]] },
+    { name: 'ai_critique_errors',
+      headers: ['error_id', 'marker', 'kind', 'correct_explanation'],
+      rows: pickRows(s.ai_critique.errors,
+        ['error_id', 'marker', 'kind', 'correct_explanation']) }
+  ];
+}
+
+function pickRows(list, fields) {
+  return list.map(function (item) { return fields.map(function (f) { return item[f]; }); });
+}
+
+function writeTab(ss, spec) {
+  let sheet = ss.getSheetByName(spec.name);
+  if (sheet) sheet.clear();
+  else sheet = ss.insertSheet(spec.name);
+  const all = [spec.headers].concat(spec.rows);
+  sheet.getRange(1, 1, all.length, spec.headers.length).setValues(all);
+  sheet.setFrozenRows(1);
+  sheet.autoResizeColumns(1, spec.headers.length);
+}
+
+function removeDefaultSheet(ss) {
+  const sheet1 = ss.getSheetByName('Sheet1');
+  if (sheet1 && ss.getSheets().length > 1) ss.deleteSheet(sheet1);
+}
