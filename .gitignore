@@ -57,3 +57,18 @@ HS G9 Bio Unit 2 Cell Biology (25-6)/Unit 1 - Cell Biology/
 # ============================================================================
 
 HS G9 Bio Unit */
+
+# ============================================================================
+# Teacher-side material that must never reach this repo's public deploy
+# (Vercel serves the whole tree here; see commit 128e3ff for the last fight).
+# Added 2026-08-23.
+#
+# REVIEW-UNITS-2-3-SITE-*.md carries candid planning notes and discusses
+# summative content by question number. Tools/ is the Checkpoint Hub marks
+# tooling; it holds no secrets, but internal marking workflow does not belong
+# on a public site. If the Hub should be version-controlled, give it a
+# private repo, or track it here deliberately with `git add -f Tools/`.
+# ============================================================================
+
+REVIEW-UNITS-2-3-SITE-*.md
+Tools/
