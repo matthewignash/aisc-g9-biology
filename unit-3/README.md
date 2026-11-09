@@ -33,8 +33,10 @@ swan-neck flask and the third principle needs him. Part C is gone, so the page r
 F, and the Block 1 lesson describes it that way.
 
 **Section 2** is `unit-2/section-2/` as built, with the organelle inventory trimmed from
-fourteen to **seven plus ribosomes**: nucleus, cytoplasm, cell membrane, cell wall, chloroplast,
-vacuole, mitochondrion. Endoplasmic reticulum, Golgi, lysosome, centriole, cytoskeleton, vesicle
+fourteen to **ten plus ribosomes**: nucleus, cytoplasm, cell membrane, cell wall, chloroplast,
+vacuole, mitochondrion, rough ER, smooth ER and Golgi apparatus. It was first trimmed to seven;
+rough ER, smooth ER and the Golgi were restored as full members on 2026-10-26 (applied
+2026-11-09), as the cell's protein production line. Lysosome, centriole, cytoskeleton, vesicle
 and nucleolus are out of the reading, the explorer, the drag cards, the fill-ins and the
 multiple choice. The endosymbiosis card and the plant / animal / both sort stay. The AI critique
 stays but no longer turns on centrioles; its third error is now the ribosome trap, which is the
@@ -43,7 +45,7 @@ one Block 6 names.
 Two things to know about the trimmed section 2. The Wikimedia diagrams still carry their full
 printed labels, because they are textbook figures and stripping labels out of the artwork is a
 different job; a line under the explorer tells students the list is their list and the picture
-carries more. And with only these seven structures, **the animal-only column of the sort is
+carries more. And with these ten structures, **the animal-only column of the sort is
 correctly empty**, because there is nothing an animal cell has that a plant cell lacks. The card
 says one column may finish empty without saying which.
 

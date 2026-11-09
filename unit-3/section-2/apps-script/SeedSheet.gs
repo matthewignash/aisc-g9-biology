@@ -78,7 +78,7 @@ const SEED_SNAPSHOT = JSON.parse(`{
     },
     {
       "id": "mcq-plant-vs-animal-2",
-      "prompt": "Of the seven structures, which set is in a plant cell but not in an animal cell?",
+      "prompt": "Of the ten structures, which set is in a plant cell but not in an animal cell?",
       "option_a": "Cell wall, chloroplast, large vacuole",
       "option_b": "Nucleus, mitochondrion, ribosomes",
       "option_c": "Chloroplast and mitochondrion",
@@ -95,6 +95,16 @@ const SEED_SNAPSHOT = JSON.parse(`{
       "option_d": "Plant cells perform photosynthesis.",
       "correct": "b",
       "explanation": "Their separate, bacterial-style DNA and 70S ribosomes — plus their double membranes and independent division — point to a free-living prokaryotic ancestry."
+    },
+    {
+      "id": "mcq-production-line",
+      "prompt": "A yeast cell makes a digestive enzyme and releases it onto the food around it. Which order does the enzyme pass through?",
+      "option_a": "Golgi apparatus, then rough ER, then vesicle, then cell membrane",
+      "option_b": "Ribosome on the rough ER, then Golgi apparatus, then vesicle, then cell membrane",
+      "option_c": "Nucleus, then smooth ER, then mitochondrion, then cell membrane",
+      "option_d": "Ribosome on the rough ER, then vesicle, then nucleus, then cell membrane",
+      "correct": "b",
+      "explanation": "Ribosomes on the rough ER build the enzyme and the rough ER folds it. The Golgi finishes it and packs it into a vesicle, and the vesicle joins the cell membrane to release it outside. The Golgi comes after the ER, never before."
     }
   ],
   "fill_blank": [
@@ -145,6 +155,12 @@ const SEED_SNAPSHOT = JSON.parse(`{
       "prompt": "A plant cell wall is made of cellulose. A fungal cell wall, such as a yeast's, is made of ____.",
       "accepted_answers": "chitin",
       "case_sensitive": false
+    },
+    {
+      "id": "fill-golgi",
+      "prompt": "The stack of flattened membrane sacs that finishes, sorts and packages proteins into vesicles is the ____.",
+      "accepted_answers": "Golgi apparatus|Golgi|Golgi body|Golgi complex|golgi apparatus",
+      "case_sensitive": false
     }
   ],
   "drag_columns": [
@@ -186,6 +202,21 @@ const SEED_SNAPSHOT = JSON.parse(`{
     {
       "id": "cytoplasm",
       "label": "Cytoplasm",
+      "correct_column": "both"
+    },
+    {
+      "id": "rough-er",
+      "label": "Rough ER",
+      "correct_column": "both"
+    },
+    {
+      "id": "smooth-er",
+      "label": "Smooth ER",
+      "correct_column": "both"
+    },
+    {
+      "id": "golgi",
+      "label": "Golgi apparatus",
       "correct_column": "both"
     }
   ],
@@ -328,6 +359,33 @@ const SEED_SNAPSHOT = JSON.parse(`{
       "name": "Mitochondria",
       "function": "Release ATP from glucose through cellular respiration — the cell's power plant.",
       "example": "A working muscle cell can contain thousands of mitochondria.",
+      "in_plant": "yes",
+      "in_animal": "yes",
+      "in_prokaryote": "no"
+    },
+    {
+      "id": "rough_er",
+      "name": "Rough endoplasmic reticulum",
+      "function": "A folded network of membranes spreading out from the nucleus, its surface studded with ribosomes, which is what makes it look rough. Proteins built by those ribosomes are fed inside, folded into shape, and sent on to the Golgi in small membrane sacs called vesicles.",
+      "example": "A cell that makes a lot of protein to export, like a pancreas cell making digestive enzymes, is packed with rough ER.",
+      "in_plant": "yes",
+      "in_animal": "yes",
+      "in_prokaryote": "no"
+    },
+    {
+      "id": "smooth_er",
+      "name": "Smooth endoplasmic reticulum",
+      "function": "The same kind of membrane network, with no ribosomes on it. It makes lipids, including the phospholipids every membrane in the cell is built from, and in some cells it breaks down toxins.",
+      "example": "Liver cells have a lot of smooth ER, because the liver breaks down drugs and alcohol.",
+      "in_plant": "yes",
+      "in_animal": "yes",
+      "in_prokaryote": "no"
+    },
+    {
+      "id": "golgi",
+      "name": "Golgi apparatus",
+      "function": "A stack of flattened membrane sacs. Vesicles from the rough ER arrive at one side; the Golgi finishes the proteins, sorts them and packs them into new vesicles that leave from the other side, some to stay in the cell and some to fuse with the cell membrane and release their contents outside.",
+      "example": "When a yeast cell releases digestive enzymes onto the food around it, those enzymes were packaged by its Golgi.",
       "in_plant": "yes",
       "in_animal": "yes",
       "in_prokaryote": "no"
